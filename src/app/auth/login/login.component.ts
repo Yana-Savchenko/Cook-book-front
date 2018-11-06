@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import {AuthHttpService} from '../../core/services/auth-http.service';
+import { AuthHttpService } from '../../core/services/auth-http.service';
 
 @Component({
   selector: 'app-login',
@@ -9,22 +10,25 @@ import {AuthHttpService} from '../../core/services/auth-http.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  myForm : FormGroup;
-  constructor(private httpService: AuthHttpService){
-      this.myForm = new FormGroup({
-          "email": new FormControl("", Validators.required),
-          "password": new FormControl("", Validators.required)
-      });
+  
+  myForm: FormGroup;
+  constructor(private httpService: AuthHttpService, private router: Router) {
+    this.myForm = new FormGroup({
+      "email": new FormControl("", Validators.required),
+      "password": new FormControl("", Validators.required)
+    });
   }
-   
+
   ngOnInit() {
   }
-  submit(){
-      console.log(this.myForm.value);
-      this.httpService.postLogin(this.myForm.value).subscribe(
-        (data: any) => {console.log(data)},
-        error => console.log(error)
+  submit() {
+    console.log(this.myForm.value);
+    this.httpService.postLogin(this.myForm.value).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.router.navigate(['/home']);
+      },
+      error => console.log(error)
     );
   }
 }

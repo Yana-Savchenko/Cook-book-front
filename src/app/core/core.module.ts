@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'; 
 
 import {AuthHttpService} from './services/auth-http.service';
-
+import {HomeHttpService} from './services/home-http.service';
 
 @NgModule({
   imports: [
@@ -14,7 +14,8 @@ import {AuthHttpService} from './services/auth-http.service';
     HttpClientModule
   ],
   providers: [
-    AuthHttpService
+    AuthHttpService,
+    HomeHttpService
   ],
   declarations: []
 })
