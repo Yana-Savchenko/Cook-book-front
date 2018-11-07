@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.httpService.getHome().subscribe(
       (data: any) => {
-        console.log(data);
+        //console.log(data);
       },
       error => console.log(error)
     );

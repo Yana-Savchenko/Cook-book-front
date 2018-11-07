@@ -1,0 +1,18 @@
+<nav>
+  <h2><a routerLink="/home">Easy cook</a></h2>
+  <div *ngIf="isAuth;else other_content" class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+    <button class="btn btn-primary" ngbDropdownToggle>Account</button>
+    <div class="dropdown-menu" ngbDropdownMenu>
+      <a class="dropdown-item" routerLink="/profile">Profile</a>
+      <a class="dropdown-item" routerLink="/my-recipes">My recipes</a>
+      <a class="dropdown-item" routerLink="/favorites">Favorites</a>
+      <a class="dropdown-item">Sign out</a>
+    </div>
+  </div>
+  <ng-template #other_content>
+    <div class="auth">
+      <a routerLink="/auth/login">Sign-in</a>
+      <a routerLink="/auth/register">Sign-up</a>
+    </div>
+  </ng-template>
+</nav>

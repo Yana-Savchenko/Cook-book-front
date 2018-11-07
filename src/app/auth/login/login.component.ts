@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private httpService: AuthHttpService, private router: Router) {
     this.myForm = new FormGroup({
       "email": new FormControl("", Validators.required),
-      "password": new FormControl("", Validators.required)
+      "pass": new FormControl("", Validators.required)
     });
   }
 
@@ -25,8 +25,10 @@ export class LoginComponent implements OnInit {
     console.log(this.myForm.value);
     this.httpService.postLogin(this.myForm.value).subscribe(
       (data: any) => {
-        console.log(data);
+        console.log(data.token);
+        localStorage.setItem('token', data.token);
         this.router.navigate(['/home']);
+        this.httpService.setAuth(true);
       },
       error => console.log(error)
     );

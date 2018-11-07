@@ -1,0 +1,27 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(48, 1d, 0b, 0.5);
+    padding-left: 2rem;
+
+    h2 a, .auth a {
+        color: beige;
+        margin-right: 1rem;
+        font-size: 2rem;
+    }
+    .btn-primary {
+        background-color:  beige;
+        border-color:beige;
+        color: #481d0b;
+        margin-right: 5rem; 
+    }
+    .btn-primary:focus {
+        box-shadow: none;
+    }
+    .btn-primary.dropdown-toggle {
+        background-color:  beige;
+        border-color:beige;
+        color: #481d0b;
+    }
+}

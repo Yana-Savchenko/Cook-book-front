@@ -4,9 +4,10 @@ import {BaseComponent} from './base/base.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'auth', component: BaseComponent, loadChildren: './auth/auth.module#AuthModule'  },
-  { path: 'home', component: BaseComponent, loadChildren: './home/home.module#HomeModule' },
-  { path: 'profile', component: BaseComponent, loadChildren: './profile/profile.module#ProfileModule' },
+  { path: 'auth', loadChildren: './auth/auth.module#AuthModule'  },
+  { path: 'home', loadChildren: './home/home.module#HomeModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },
+  { path: 'my-recipes', loadChildren: './my-recipes/my-recipes.module#MyRecipesModule' },
 
 ];
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 import {AuthHttpService} from '../../core/services/auth-http.service';
 
@@ -17,7 +18,7 @@ export class User{
 export class RegisterComponent implements OnInit {
 
   myForm : FormGroup;
-  constructor(private httpService: AuthHttpService){
+  constructor(private httpService: AuthHttpService, private router: Router){
       this.myForm = new FormGroup({
            
           "firstName": new FormControl("", Validators.required),
@@ -33,7 +34,10 @@ export class RegisterComponent implements OnInit {
   submit(){
       console.log(this.myForm.value);
       this.httpService.postRegister(this.myForm.value).subscribe(
-        (data: User) => {console.log(data)},
+        (data: any) => {
+          localStorage.setItem('token', data.token);
+          this.router.navigate(['/home']);
+          },
         error => console.log(error)
     );
   }
