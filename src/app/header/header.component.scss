@@ -2,11 +2,11 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(48, 1d, 0b, 0.5);
+    background: #FFF;
     padding-left: 2rem;
 
     h2 a, .auth a {
-        color: beige;
+        color: #262626;
         margin-right: 1rem;
         font-size: 2rem;
     }
@@ -24,4 +24,8 @@ nav {
         border-color:beige;
         color: #481d0b;
     }
+    // i {
+    //     font-size: 4rem;
+    //     color: green;
+    // }
 }

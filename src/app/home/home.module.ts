@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 import {HomeComponent} from './home.component';
+import { SharedModule } from '../shared/shared.module';
 
 const routerConfig: Routes = [{
   path: '',
@@ -11,7 +12,8 @@ const routerConfig: Routes = [{
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
+    // CommonModule,
     RouterModule.forChild(routerConfig),
   ],
   declarations: [HomeComponent]

@@ -12,13 +12,12 @@ import { BaseComponent } from './base/base.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     BaseComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
