@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomeModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfileModule' },
   { path: 'my-recipes', loadChildren: './my-recipes/my-recipes.module#MyRecipesModule' },
+  { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' },
 
 ];
 

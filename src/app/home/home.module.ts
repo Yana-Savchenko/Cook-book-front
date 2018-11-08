@@ -1,10 +1,7 @@
-import {
-  NgModule,
-  
-} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {HomeComponent} from './home.component';
+import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared/shared.module';
 
 const routerConfig: Routes = [{
@@ -15,7 +12,6 @@ const routerConfig: Routes = [{
 @NgModule({
   imports: [
     SharedModule,
-    // CommonModule,
     RouterModule.forChild(routerConfig),
   ],
   declarations: [HomeComponent]
