@@ -1,3 +1,54 @@
-<p>
-  new-recipe works!
-</p>
+<app-category-nav></app-category-nav>
+<div class="wrapper">
+  <div class="header">
+    <h3>New recipe</h3>
+  </div>
+  <form [formGroup]="newRecipeForm" novalidate (ngSubmit)="submit()">
+    <div class="form-group">
+      <label>Title</label>
+      <input class="form-control" name="title" formControlName="title" placeholder="Title" />
+    </div>
+    <div class="form-group">
+      <label>Recipe description</label>
+      <textarea class="form-control" name="content" formControlName="content" placeholder="Content"></textarea>
+    </div>
+    <div class="form-group select">
+      <div class="form-group">
+        <label>Recipe category</label>
+        <select class="form-control" name="category" formControlName="category">
+          <option>Appetizers&Snack</option>
+          <option>Breakfast&Brunch</option>
+          <option>Dessert</option>
+          <option>Dinner</option>
+          <option>Drinks</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label>Cooking time</label>
+          <select class="form-control" name="cookingTime" formControlName="cookingTime">
+            <option>up to 15 minutes</option>
+            <option>up to 30 minutes</option>
+            <option>up to 1 hour</option>
+            <option>up to 1.5 hours</option>
+            <option>up to 2 hours</option>
+            <option>over 2 hours</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label>Complexity</label>
+            <select class="form-control" name="complexity" formControlName="complexity">
+              <option>Easy</option>
+              <option>Medium</option>
+              <option>Hard</option>
+            </select>
+          </div>
+    </div>
+    <div class="form-group">
+      <input type="file" name="dishFoto" formControlName="dishFoto" (change)="change($event)" />
+      <img [src]="sanitize()">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-lg btn-primary" type="submit" [disabled]="newRecipeForm.invalid">Save</button>
+    </div>
+  </form>
+</div>

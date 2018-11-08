@@ -1,0 +1,28 @@
+.header {
+    background-color: #96c031;
+    color: #FFF;
+    margin-top: 5px;
+    padding-left: 1rem;
+    
+    h3 {
+        line-height: 3rem;
+    }
+}
+.wrapper {
+    background-color: #FFF;
+    form {
+        padding: 0.5rem;
+    }
+    textarea {
+        height: 20rem;
+        resize: none;
+    }
+} 
+
+.select {
+    display: flex;
+    justify-content: space-between;
+    &>div {
+        width: 30%;
+    }
+}

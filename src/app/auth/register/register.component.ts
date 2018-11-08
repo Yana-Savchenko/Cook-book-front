@@ -17,16 +17,16 @@ export class User{
 })
 export class RegisterComponent implements OnInit {
 
-  myForm : FormGroup;
-  constructor(private httpService: AuthHttpService, private router: Router){
-      this.myForm = new FormGroup({
-           
-          "firstName": new FormControl("", Validators.required),
-          "lastName": new FormControl("", Validators.required),
-          "email": new FormControl("", Validators.required),
-          "age": new FormControl("", Validators.required),
-          "pass": new FormControl("", Validators.required)
-      });
+  myForm: FormGroup;
+  constructor(private httpService: AuthHttpService, private router: Router) {
+    this.myForm = new FormGroup({
+
+      "firstName": new FormControl("", Validators.required),
+      "lastName": new FormControl("", Validators.required),
+      "email": new FormControl("", Validators.required),
+      "age": new FormControl("", Validators.required),
+      "pass": new FormControl("", Validators.required)
+    });
   }
    
   ngOnInit() {

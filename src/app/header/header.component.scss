@@ -6,8 +6,7 @@ nav {
     height: 5rem;
     
     .wrapper {
-        width: 80%;
-        margin: auto;
+        padding-left: 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center; 
@@ -28,7 +27,7 @@ nav {
     .btn-outline-primary {
         border-color: #fff;
         color: #481d0b;
-        margin-right: 5rem; 
+        margin-right: 1rem; 
     }
     .btn-outline-primary:focus:active, .btn-outline-primary:focus, .btn-outline-primary:hover {
         background: none;
