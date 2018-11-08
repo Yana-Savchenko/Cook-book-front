@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DrinksRecipesComponent implements OnInit {
 
+  private headerText:string = 'Drinks';
+
   constructor() { }
 
   ngOnInit() {

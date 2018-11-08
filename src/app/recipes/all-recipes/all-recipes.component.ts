@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllRecipesComponent implements OnInit {
 
+  private headerText:string = 'All recipes';
   constructor() { }
 
   ngOnInit() {

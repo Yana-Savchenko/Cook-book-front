@@ -10,7 +10,8 @@ import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 })
 export class NewRecipeComponent implements OnInit {
 
-  foto:string = '';
+  private headerText:string = 'New recipe';
+  private foto:string = '';
   newRecipeForm: FormGroup;
 
   constructor( private router: Router, private sanitizer:DomSanitizer) {

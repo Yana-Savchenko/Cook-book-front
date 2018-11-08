@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 import { CategoryNavComponent } from './category-nav/category-nav.component';
-import { RouterModule } from '@angular/router'
+import { SectionHeaderComponent } from './section-header/section-header.component'
 
 
 @NgModule({
@@ -11,10 +13,12 @@ import { RouterModule } from '@angular/router'
   ],
   exports: [
     CategoryNavComponent,
+    SectionHeaderComponent,
     CommonModule,
   ],
   declarations: [
-    CategoryNavComponent
+    CategoryNavComponent,
+    SectionHeaderComponent
   ],
 })
 export class SharedModule { }

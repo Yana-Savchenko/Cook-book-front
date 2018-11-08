@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-category-nav',
@@ -8,13 +8,8 @@ import { Router } from '@angular/router';
 })
 export class CategoryNavComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
-
-  onClick() {
-    this._router.navigateByUrl('/profile');
-  }
-
 }
