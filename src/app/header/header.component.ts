@@ -18,15 +18,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     const subscription: Subscription = this.authService.isAuth$.subscribe((value: boolean) => {
-      console.log('LOGGED IN')
       this.isAuth = value;
-      console.log(value, this.isAuth);
     });
     this.subscriptions.push(subscription);
   }
 
   ngOnDestroy() {
-    console.log('ON DESTROY HEADER')
     this.subscriptions.forEach((item: Subscription) => {
       item.unsubscribe();
     })

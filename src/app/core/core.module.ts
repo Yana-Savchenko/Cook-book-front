@@ -8,7 +8,7 @@ import {HomeHttpService} from './services/home-http.service';
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     HttpClientModule

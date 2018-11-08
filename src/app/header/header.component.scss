@@ -3,29 +3,73 @@ nav {
     justify-content: space-between;
     align-items: center;
     background: #FFF;
-    padding-left: 2rem;
+    height: 5rem;
+    
+    .wrapper {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+    }
+
+    h2 {
+        font-family: Fredericka the Great, sans-serif;
+        span {
+            color: #96c031;
+        }
+    }
 
     h2 a, .auth a {
         color: #262626;
         margin-right: 1rem;
         font-size: 2rem;
     }
-    .btn-primary {
-        background-color:  beige;
-        border-color:beige;
+    .btn-outline-primary {
+        border-color: #fff;
         color: #481d0b;
         margin-right: 5rem; 
     }
-    .btn-primary:focus {
+    .btn-outline-primary:focus:active, .btn-outline-primary:focus, .btn-outline-primary:hover {
+        background: none;
         box-shadow: none;
     }
-    .btn-primary.dropdown-toggle {
-        background-color:  beige;
-        border-color:beige;
+    .btn-outline-primary.dropdown-toggle {
+        border-color: #FFF;
         color: #481d0b;
     }
     // i {
     //     font-size: 4rem;
     //     color: green;
     // }
+    .btn-group {
+        display: flex;
+        align-items: center;
+    }
+    .fa-user {
+        color: #96c031;
+        font-size: 2rem;
+    }
+}
+
+.searchbox {
+    display: flex;
+    min-width: 40%;
+    &>input {
+        height: 3rem;
+        border-radius: 0;
+    }
+    &>button {
+        height: 3rem;
+        border-radius: 0;
+        background-color: #96c031;
+        color: #FFF;
+    }
+}
+.search_toggle {
+    width: 40%;
+}
+
+.btn-group button {
+    font-size: 1.5rem;
 }
