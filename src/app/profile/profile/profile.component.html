@@ -1,5 +1,63 @@
+<app-category-nav></app-category-nav>
 <div class="wrapper">
-  <p>
-    profile works!
-  </p>
+  <app-section-header [header]="headerText"></app-section-header>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-6 avatar-container">
+          <div class="img">
+            <img src="/assets/img/background.jpg" alt="" class="img-rounded">
+          </div>
+          <div class="file-upload">
+            <label>
+              <input type="file" name="avatar" accept="image/*,image/jpeg">
+              <span>Change avatar</span>
+            </label>
+          </div>
+          <div>
+            <input type="text" id="filename" class="filename" disabled>
+            <button class="btn btn-sm btn-primary" type="button" id="save-avatar">Save</button>
+          </div>
+        </div>
+        <div class="col-md-6 details view-details">
+          <ul class="user-data">
+            <li>
+              <p>First name</p>
+              <p>{{firstName}}</p>
+            </li>
+            <li>
+              <p>Last name</p>
+              <p>{{lastName}}</p>
+            </li>
+            <li>
+              <p>Email</p>
+              <p>{{email}}</p>
+            </li>
+            <li>
+              <p>Age</p>
+              <p>{{age}}</p>
+            </li>
+          </ul>
+          <button class="btn btn-sm btn-primary" type="button" id="edit">Edit</button>
+        </div>
+        <div class="col-md-6 details edit-details">
+          <ul class="user-data">
+            <li>
+              <p>First name</p><input type="text" value={{firstName}} id="first-name" autofocus required>
+            </li>
+            <li>
+              <p>Last name</p><input type="text" value={{lastName}} id="last-name" required>
+            </li>
+            <li>
+              <p>Email</p><input type="email" value={{email}} id="email" required>
+            </li>
+            <li><span class="invalid-email"></span></li>
+            <li>
+              <p>Age</p><input type="number" value={{age}} id="age">
+            </li>
+          </ul>
+          <button class="btn btn-sm btn-primary" type="button" id="save">Save</button>
+          <button class="btn btn-sm btn-primary" type="button" id="cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
 </div>
