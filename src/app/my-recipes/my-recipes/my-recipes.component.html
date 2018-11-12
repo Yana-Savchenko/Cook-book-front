@@ -2,4 +2,9 @@
 <div class="wrapper">
     <app-section-header [header]="headerText"></app-section-header>
     <button routerLink="./new-recipe">Add recipe</button>
+    <ul>
+        <li *ngFor="let recipe of recipes">
+            <app-recipe-card [recipe]="recipe" (buttonPress)="onCardPress($event)"></app-recipe-card>
+        </li>
+    </ul>
 </div>

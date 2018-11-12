@@ -3,22 +3,31 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { CategoryNavComponent } from './category-nav/category-nav.component';
-import { SectionHeaderComponent } from './section-header/section-header.component'
+import { SectionHeaderComponent } from './section-header/section-header.component';
+import { RecipeCardComponent } from './recipe-card/recipe-card.component'
 
+const declarations = [
+  CategoryNavComponent,
+  SectionHeaderComponent,
+  RecipeCardComponent
+];
+
+const modules = [
+  CommonModule,
+];
 
 @NgModule({
   imports: [
-    CommonModule,
-    RouterModule
+    RouterModule,
+    ...modules
   ],
   exports: [
-    CategoryNavComponent,
-    SectionHeaderComponent,
     CommonModule,
+    ...declarations,
+    ...modules
   ],
   declarations: [
-    CategoryNavComponent,
-    SectionHeaderComponent
+    ...declarations,
   ],
 })
 export class SharedModule { }

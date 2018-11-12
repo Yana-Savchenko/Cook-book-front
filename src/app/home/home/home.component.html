@@ -5,10 +5,10 @@
     </div>
     <ul>
         <li *ngFor="let recipe of recipes">
-            <img src="{{servUrl}}{{recipe.dish_photo.path}}">
-            <h3>{{recipe.title}}</h3>
-            <p><span>cooking time:</span> {{recipe.cooking_time}}</p>
-            <p><span>complexity:</span> {{recipe.complexity}}</p>
+            <app-recipe-card
+                [recipe]="recipe"
+                (buttonPress)="onCardPress($event)"
+            ></app-recipe-card>
         </li>
     </ul>
 </div>

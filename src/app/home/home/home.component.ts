@@ -25,4 +25,8 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  onCardPress(event) {
+    console.log(event);
+  }
+
 }
