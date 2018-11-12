@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="form-group">
-      <input type="file" name="dish_photo" formControlName="dish_photo" (change)="change($event)" />
+      <input type="file" name="dish_photo" accept="image/*,image/jpeg" formControlName="dish_photo" (change)="change($event)" />
     </div>
     <img [src]="sanitize()">
     <div class="form-group">

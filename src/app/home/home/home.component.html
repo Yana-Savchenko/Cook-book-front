@@ -4,6 +4,11 @@
         <app-carousel></app-carousel>
     </div>
     <ul>
-        <li *ngFor="let recipe of recipes"><img src="{{servUrl}}{{recipe.dish_photo.path}}"></li>
-      </ul>
+        <li *ngFor="let recipe of recipes">
+            <img src="{{servUrl}}{{recipe.dish_photo.path}}">
+            <h3>{{recipe.title}}</h3>
+            <p><span>cooking time:</span> {{recipe.cooking_time}}</p>
+            <p><span>complexity:</span> {{recipe.complexity}}</p>
+        </li>
+    </ul>
 </div>

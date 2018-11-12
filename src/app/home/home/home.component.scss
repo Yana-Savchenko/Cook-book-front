@@ -1,13 +1,30 @@
 .wrapper {
+    background-color: #f8f9fa;
     margin-top: 1rem;
-    p {
+    ul {
+        display: flex;
+        list-style-type: none;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    li {
+        margin-top: 15px;
+        width: 32%;
+        padding: 0 5px;
         background-color: #fff;
-        padding-left: 1rem;
-        margin-top: 1rem;    }
-
-        .carousel {
-            width: 90%;
-            margin: auto;
+        img {
+            width: 100%;
         }
-    
+        h3 {
+            text-align: center;
+        }
+        span {
+            font-weight: 600;
+        }
+    }
+}
+div.carousel {
+    background-color: #fff;
+    width: 100%;
+    margin: 1rem auto;
 }
