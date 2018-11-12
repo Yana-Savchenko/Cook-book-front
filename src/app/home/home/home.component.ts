@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   
   private recipes = [];
   private servUrl = environment.serverUrl;
+  
   constructor(private httpService: HomeHttpService,) { }
 
   ngOnInit() {
