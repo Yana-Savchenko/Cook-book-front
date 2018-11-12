@@ -14,6 +14,6 @@ export class HomeHttpService {
 
   getHome() {
 
-    return this.http.get(`${this.servUrl}recipes/home`, { headers: this.headersConfig });
+    return this.http.get(`${this.servUrl}/recipes/home`, { headers: this.headersConfig });
   }
 }

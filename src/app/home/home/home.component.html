@@ -3,5 +3,7 @@
     <div class="carousel">
         <app-carousel></app-carousel>
     </div>
-    <p>home works!</p>
+    <ul>
+        <li *ngFor="let recipe of recipes"><img src="{{servUrl}}{{recipe.dish_photo.path}}"></li>
+      </ul>
 </div>

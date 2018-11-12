@@ -37,10 +37,9 @@ nav {
         border-color: #FFF;
         color: #481d0b;
     }
-    // i {
-    //     font-size: 4rem;
-    //     color: green;
-    // }
+    .btn-outline-primary.dropdown-toggle:active {
+        background-color: #fff;
+    }
     .btn-group {
         display: flex;
         align-items: center;
