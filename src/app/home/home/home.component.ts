@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HomeHttpService } from '../../core/services/home-http.service';
-import { environment } from '../../../environments/environment'
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   
   private recipes = [];
   private servUrl = environment.serverUrl;
+  private headerText:string = 'Recently added';
   
   constructor(private httpService: HomeHttpService,) { }
 

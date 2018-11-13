@@ -3,6 +3,7 @@
     <div class="carousel">
         <app-carousel></app-carousel>
     </div>
+    <app-section-header [header]="headerText"></app-section-header>
     <ul>
         <li *ngFor="let recipe of recipes">
             <app-recipe-card

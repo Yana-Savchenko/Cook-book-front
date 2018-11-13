@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { RecipeHttpService } from '../../core/services/recipe-http.service';
+
 @Component({
   selector: 'app-drinks-recipes',
   templateUrl: './drinks-recipes.component.html',
@@ -8,10 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class DrinksRecipesComponent implements OnInit {
 
   private headerText:string = 'Drinks';
+  private recipes = [];
 
-  constructor() { }
-
+  constructor(private httpService: RecipeHttpService) { }
+  
   ngOnInit() {
+    this.httpService.getCategryRecipes(5).subscribe(
+      (data: any) => {
+        this.recipes = data;
+      },
+      error => console.log(error)
+    );
   }
 
 }

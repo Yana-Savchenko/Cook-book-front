@@ -1,19 +1,23 @@
 .wrapper {
-    background-color: #f8f9fa;
-    margin-top: 1rem;
-    ul {
-        display: flex;
-        list-style-type: none;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    li {
-        margin-top: 15px;
-        width: 32%;
-        background-color: #fff;
-    }
+        ul {
+            padding: 10px;
+            display: flex;
+            list-style-type: none;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        li {
+            margin-top: 15px;
+            width: 32%;
+            background-color: #fff;
+            border:2px solid #d0d2d5;
+        }
+        li:not(:nth-child(3n)) {
+            margin-right: 2%;
+        }
 }
 div.carousel {
+    padding: 16px 10px 0;
     background-color: #fff;
     width: 100%;
     margin: 1rem auto;

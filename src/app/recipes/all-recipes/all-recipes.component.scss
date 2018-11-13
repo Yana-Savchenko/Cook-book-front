@@ -1,0 +1,18 @@
+.wrapper {
+    padding: 10px;
+    ul {
+        display: flex;
+        list-style-type: none;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    li {
+        margin-top: 15px;
+        width: 32%;
+        background-color: #fff;
+        border:2px solid #d0d2d5;
+    }
+    li:not(:nth-child(3n)) {
+		margin-right: 2%;
+	}
+} 

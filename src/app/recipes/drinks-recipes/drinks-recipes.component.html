@@ -1,7 +1,12 @@
 <app-category-nav></app-category-nav>
 <div class="wrapper">
     <app-section-header [header]="headerText"></app-section-header>
-  <p>
-    drinks-recipes works!
-  </p>
+    <ul>
+      <li *ngFor="let recipe of recipes">
+          <app-recipe-card
+              [recipe]="recipe"
+              (buttonPress)="onCardPress($event)"
+          ></app-recipe-card>
+      </li>
+  </ul>
 </div>

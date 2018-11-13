@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { RecipeHttpService } from '../../core/services/recipe-http.service';
+
 @Component({
   selector: 'app-all-recipes',
   templateUrl: './all-recipes.component.html',
@@ -8,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class AllRecipesComponent implements OnInit {
 
   private headerText:string = 'All recipes';
-  constructor() { }
+  private recipes = [];
+
+  constructor(private httpService: RecipeHttpService) { }
 
   ngOnInit() {
+    this.httpService.getAllRecipes().subscribe(
+      (data: any) => {
+        this.recipes = data;
+      },
+      error => console.log(error)
+    );
   }
 
 }

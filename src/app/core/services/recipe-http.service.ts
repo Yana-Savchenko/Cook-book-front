@@ -18,4 +18,16 @@ export class RecipeHttpService {
     return this.http.get(`${this.servUrl}/recipes/my-recipes`, { headers: this.headersConfig });
 
   }
+
+  getCategryRecipes(category) {
+
+    return this.http.get(`${this.servUrl}/recipes/${category}`);
+
+  }
+
+  getAllRecipes() {
+
+    return this.http.get(`${this.servUrl}/recipes`);
+
+  }
 }
