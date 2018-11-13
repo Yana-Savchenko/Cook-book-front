@@ -1,0 +1,28 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { environment } from '../../../environments/environment'
+
+export interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+  age: number;
+};
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProfileHttpService {
+
+  servUrl = environment.serverUrl;
+  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') });
+
+
+  constructor(private http: HttpClient) { }
+
+  getUserData() {
+    return this.http.get(`${this.servUrl}/users/profile`, { headers: this.headersConfig });
+  }
+}

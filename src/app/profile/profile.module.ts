@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {ProfileComponent} from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
+import { ProfileAvatarComponent } from './profile-avatar/profile-avatar.component';
 
 const routerConfig: Routes = [{
   path: '',
@@ -16,6 +18,6 @@ const routerConfig: Routes = [{
     RouterModule.forChild(routerConfig),
     SharedModule,
   ],
-  declarations: [ProfileComponent]
+  declarations: [ProfileComponent, ProfileDetailsComponent, ProfileAvatarComponent]
 })
 export class ProfileModule { }

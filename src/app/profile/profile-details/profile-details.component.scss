@@ -1,0 +1,24 @@
+.details{
+    padding-left: 5%;
+    border-left:3px solid #e2eca5;
+    p{
+        font-size:15px;
+        font-weight:bold;
+    }
+    li {
+       display: flex;
+    }
+    .btn {
+        text-align: center;
+        background-color: #96c031;
+        color: #fff;
+        margin-left: 25%;
+        padding: 0.2rem 2rem;
+        border: none;
+      }
+  }
+
+  .user-data p:first-child{
+    color: #000;
+    width: 8rem;
+  }
