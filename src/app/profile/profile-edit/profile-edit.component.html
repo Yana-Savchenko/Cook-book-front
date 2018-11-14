@@ -1,0 +1,28 @@
+<div class="details edit-details">
+  <form [formGroup]="profile" novalidate (ngSubmit)="submit()">
+    <div class="form-group">
+      <label>First name</label>
+      <input type="text" class="form-control" name="firstName" formControlName="firstName" value={{userData.firstName}} />
+    </div>
+    <div class="form-group">
+      <label>Last name</label>
+      <input type="text" class="form-control" name="lastName" formControlName="lastName" value={{userData.lastName}} />
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" name="email" formControlName="email" value={{userData.email}} />
+    </div>
+    <div class="form-group">
+      <label>Age</label>
+      <input type="age" class="form-control" name="age" formControlName="age" value={{userData.age}} />
+    </div>
+    <div class="buttons">
+      <div class="form-group">
+        <button class="btn btn-lg btn-primary" type="submit">Save</button>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-lg btn-primary">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>

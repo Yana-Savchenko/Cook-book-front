@@ -10,6 +10,7 @@ import { ProfileHttpService, User } from '../../core/services/profile-http.servi
 export class ProfileComponent implements OnInit {
 
   private headerText: string = 'My profile';
+  private visibility: boolean = true;
   private userData: User = {
     firstName: '',
     lastName: '',
@@ -28,6 +29,13 @@ export class ProfileComponent implements OnInit {
       },
       error => console.log(error)
     );
+
+  }
+
+  editProfile(event) {
+
+    console.log(event);
+    this.visibility = event;
 
   }
 

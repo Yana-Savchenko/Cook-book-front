@@ -1,0 +1,20 @@
+.details{
+    padding-left: 5%;
+    border-left:3px solid #e2eca5;
+    
+    .btn {
+        text-align: center;
+        background-color: #96c031;
+        color: #fff;
+        padding: 0.2rem 2rem;
+        border: none;
+      }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    &>div {
+        width: 40%;
+    }
+  } 

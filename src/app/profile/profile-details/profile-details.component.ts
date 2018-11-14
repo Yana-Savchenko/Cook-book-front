@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-profile-details',
@@ -8,7 +8,15 @@ import { Component, OnInit, Input, } from '@angular/core';
 export class ProfileDetailsComponent implements OnInit {
 
   constructor() { }
-@Input () userData = {};
+
+  @Input() userData = {};
+
+  @Output() edit = new EventEmitter<boolean>()
+
+  editProfile() {
+    this.edit.emit(false);
+  }
+
   ngOnInit() {
   }
 

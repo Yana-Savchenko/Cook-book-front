@@ -3,49 +3,11 @@
   <app-section-header [header]="headerText"></app-section-header>
   <div class="container">
     <div class="row">
-        <app-profile-avatar class="col-md-6"></app-profile-avatar>
-
-      <!-- <div class="col-md-6 details view-details">
-        <ul class="user-data">
-          <li>
-            <p>First name</p>
-            <p>{{userData.firstName}}</p>
-          </li>
-          <li>
-            <p>Last name</p>
-            <p>{{userData.lastName}}</p>
-          </li>
-          <li>
-            <p>Email</p>
-            <p>{{userData.email}}</p>
-          </li>
-          <li>
-            <p>Age</p>
-            <p>{{userData.age}}</p>
-          </li>
-        </ul>
-        <button class="btn btn-sm btn-primary" type="button" id="edit">Edit</button>
-      </div> -->
-      <app-profile-details class="col-md-6" [userData] = "userData"></app-profile-details>
-      <div class="col-md-6 details edit-details">
-        <ul class="user-data">
-          <li>
-            <p>First name</p><input type="text" value={{userData.firstName}} id="first-name" autofocus required>
-          </li>
-          <li>
-            <p>Last name</p><input type="text" value={{userData.lastName}} id="last-name" required>
-          </li>
-          <li>
-            <p>Email</p><input type="email" value={{userData.email}} id="email" required>
-          </li>
-          <li><span class="invalid-email"></span></li>
-          <li>
-            <p>Age</p><input type="number" value={{userData.age}} id="age">
-          </li>
-        </ul>
-        <button class="btn btn-sm btn-primary" type="button" id="save">Save</button>
-        <button class="btn btn-sm btn-primary" type="button" id="cancel">Cancel</button>
-      </div>
+      <app-profile-avatar class="col-md-6"></app-profile-avatar>
+      <app-profile-details *ngIf="visibility;else other_content" class="col-md-6" [userData]="userData" (edit)="editProfile($event)"></app-profile-details>
+      <ng-template #other_content>
+        <app-profile-edit class="col-md-6" [ngClass]="{invisible: visibility}" [userData]="userData"></app-profile-edit>
+      </ng-template>
     </div>
   </div>
 </div>

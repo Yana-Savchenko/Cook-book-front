@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesComponent implements OnInit {
 
-  // private resipes = [];
+  private resipes = [];
   private headerText:string = 'Favorites';
 
   constructor() { }
