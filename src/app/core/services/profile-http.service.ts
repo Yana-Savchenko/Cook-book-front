@@ -25,4 +25,7 @@ export class ProfileHttpService {
   getUserData() {
     return this.http.get(`${this.servUrl}/users/profile`, { headers: this.headersConfig });
   }
+  updateUserData(user:any) {
+    return this.http.put(`${this.servUrl}/users/profile`, user, { headers: this.headersConfig });
+  }
 }

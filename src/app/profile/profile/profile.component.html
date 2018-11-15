@@ -4,10 +4,8 @@
   <div class="container">
     <div class="row">
       <app-profile-avatar class="col-md-6"></app-profile-avatar>
-      <app-profile-details *ngIf="visibility;else other_content" class="col-md-6" [userData]="userData" (edit)="editProfile($event)"></app-profile-details>
-      <ng-template #other_content>
-        <app-profile-edit class="col-md-6" [ngClass]="{invisible: visibility}" [userData]="userData"></app-profile-edit>
-      </ng-template>
+      <app-profile-details *ngIf="visibility" class="col-md-6" [userData]="userData" (edit)="editProfile($event)"></app-profile-details>
+      <app-profile-edit *ngIf="!visibility" class="col-md-6" [userData]="userData" (newData)="saveEdits($event)" (cancel)="cancelEdits($event)"></app-profile-edit>
     </div>
   </div>
 </div>

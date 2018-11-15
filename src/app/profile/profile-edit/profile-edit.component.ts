@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { User } from '../../core/services/profile-http.service';
@@ -12,22 +12,33 @@ import { User } from '../../core/services/profile-http.service';
 export class ProfileEditComponent implements OnInit {
 
   profile: FormGroup;
+  
+  constructor() {
+  }
+
   @Input() userData:User;
 
-  constructor() {
-    this.profile = new FormGroup({
-      "firstName": new FormControl("", Validators.required),
-      "lastName": new FormControl("", Validators.required),
-      "email": new FormControl("", Validators.required),
-      "age": new FormControl("", Validators.required),
-    });
+  @Output() cancel = new EventEmitter<boolean>();
+  @Output() newData = new EventEmitter<FormGroup>();
 
-  }
-  
 
 
   ngOnInit() {
-
+    this.profile = new FormGroup({
+      "firstName": new FormControl(this.userData.firstName, Validators.required),
+      "lastName": new FormControl(this.userData.lastName, Validators.required),
+      "email": new FormControl(this.userData.email, Validators.required),
+      "age": new FormControl(this.userData.age, Validators.required),
+    });
   }
 
+  saveEdits() {
+    console.log(this.profile);
+    this.newData.emit(this.profile.value);
+  }
+
+  cancelEdits() {
+    console.log('cancel')
+    this.cancel.emit(true);
+  }
 }

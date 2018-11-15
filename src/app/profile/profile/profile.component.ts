@@ -34,9 +34,32 @@ export class ProfileComponent implements OnInit {
 
   editProfile(event) {
 
-    console.log(event);
     this.visibility = event;
 
   }
 
+  cancelEdits(event) {
+
+    console.log('ok');
+    this.visibility = event;
+
+  }
+
+  saveEdits(event) {
+    
+    this.httpService.updateUserData(event).subscribe(
+      () => {
+        this.visibility = true;
+        this.httpService.getUserData().subscribe(
+          (data: User) => {
+            console.log(data);
+            this.userData = data;
+          },
+          error => console.log(error)
+        );
+      },
+      error => console.log(error)
+    );
+    console.log(event);
+  }
 }
