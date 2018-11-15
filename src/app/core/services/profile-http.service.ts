@@ -8,6 +8,7 @@ export interface User {
   lastName: string;
   email: string;
   age: number;
+  avatar?: string;
 };
 
 
@@ -27,5 +28,9 @@ export class ProfileHttpService {
   }
   updateUserData(user:any) {
     return this.http.put(`${this.servUrl}/users/profile`, user, { headers: this.headersConfig });
+  }
+
+  updateAvatar(newAvatar:FormData) {
+    return this.http.put(`${this.servUrl}/users/profile/avatar`, newAvatar, { headers: this.headersConfig });
   }
 }

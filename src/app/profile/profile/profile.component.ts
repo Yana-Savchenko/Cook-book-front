@@ -11,12 +11,15 @@ export class ProfileComponent implements OnInit {
 
   private headerText: string = 'My profile';
   private visibility: boolean = true;
+  private isChangeAvatar: boolean = false;
   private userData: User = {
     firstName: '',
     lastName: '',
     email: '',
     age: 0,
+    avatar: '',
   };
+  private avatar: string = '';
 
   constructor(private httpService: ProfileHttpService) { }
 
@@ -46,7 +49,7 @@ export class ProfileComponent implements OnInit {
   }
 
   saveEdits(event) {
-    
+
     this.httpService.updateUserData(event).subscribe(
       () => {
         this.visibility = true;
@@ -60,6 +63,15 @@ export class ProfileComponent implements OnInit {
       },
       error => console.log(error)
     );
-    console.log(event);
+  }
+
+  changeAvatar(e) {
+    console.log(e);
+    this.httpService.updateAvatar(e).subscribe(
+      (data: any) => {
+        this.userData.avatar = data.path;
+      },
+      error => console.log(error)
+    );
   }
 }

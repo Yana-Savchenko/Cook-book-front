@@ -1,15 +1,16 @@
 <div class="avatar-container">
   <div class="img">
-    <img src="/assets/img/avatar.jpg" alt="" class="img-rounded">
+    <img *ngIf="avatar" src="{{servUrl}}{{avatar}}" alt="" class="img-rounded">
+    <img *ngIf="!avatar" src="/assets/img/avatar.jpg" alt="" class="img-rounded">
   </div>
   <div class="file-upload">
     <label>
-      <input type="file" name="avatar" accept="image/*,image/jpeg">
+      <input type="file" name="avatar" accept="image/*,image/jpeg" (change)="changeAvatar($event)">
       <span>Change avatar</span>
     </label>
   </div>
-  <div>
-    <input type="text" id="filename" class="filename" disabled>
-    <button class="btn btn-sm btn-primary" type="button" id="save-avatar">Save</button>
+  <div [ngClass]="{invisible: isChangeAvatar}" >
+    <input type="text" value = {{avatarPath}} class="filename" disabled>
+    <button class="btn btn-sm btn-primary" type="button" (click)="saveAvatar()">Save</button>
   </div>
 </div>
