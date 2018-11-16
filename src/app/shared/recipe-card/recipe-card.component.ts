@@ -17,7 +17,8 @@ export class RecipeCardComponent implements OnInit {
   @Input() recipe = {};
 
   @Output() buttonPress = new EventEmitter();
-  servUrl = environment.serverUrl;
+  
+  private servUrl = environment.serverUrl;
   
   constructor() { }
 

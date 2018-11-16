@@ -1,0 +1,12 @@
+<app-category-nav></app-category-nav>
+<div class="wrapper">
+    <app-section-header [header]="recipe.title"></app-section-header>
+    <div class="dish-photo">
+      <img src="{{servUrl}}{{recipe.dishPhoto.path}}">
+    </div>
+    <p><span class="bold">Category: </span>{{recipe.category}}</p>
+    <p><span class="bold">Conplexity: </span>{{recipe.complexity}}</p>
+    <p><span class="bold">Cooking time: </span>{{recipe.cookingTime}}</p>
+    <p><span class="bold">Description</span></p>
+    <p>{{recipe.content}}</p>
+</div>

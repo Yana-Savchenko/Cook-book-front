@@ -2,6 +2,10 @@
 <h3>{{recipe.title}}</h3>
 <p><span>cooking time:</span> {{recipe.cooking_time}}</p>
 <p><span>complexity:</span> {{recipe.complexity}}</p>
+<div class="recipe-controls">
+  <i class="fas fa-heart"></i>
+  <a [routerLink]="['/recipe', recipe.id]">see more...</a>
+</div>
 <!-- <button
   (click)="onButtonPress()"
 >Such button</button> -->
