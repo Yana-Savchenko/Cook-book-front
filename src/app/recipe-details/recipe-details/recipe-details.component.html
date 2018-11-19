@@ -5,7 +5,7 @@
       <img src="{{servUrl}}{{recipe.dishPhoto.path}}">
     </div>
     <p><span class="bold">Category: </span>{{recipe.category}}</p>
-    <p><span class="bold">Conplexity: </span>{{recipe.complexity}}</p>
+    <p><span class="bold">Conplexity: </span><ngb-rating [rate]="recipe.complexity"></ngb-rating></p>
     <p><span class="bold">Cooking time: </span>{{recipe.cookingTime}}</p>
     <p><span class="bold">Description</span></p>
     <p>{{recipe.content}}</p>

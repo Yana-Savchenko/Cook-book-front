@@ -38,6 +38,32 @@ export class RecipeDetailsComponent implements OnInit {
       .subscribe(
         (data: RecipeDetails) => {
           this.recipe = data;
+          switch(this.recipe.cookingTime) {
+            case("0.25"): {
+              this.recipe.cookingTime = 'up to 15 minutes';
+              break;
+            }
+            case("0.5"): {
+              this.recipe.cookingTime = 'up to 30 minutes';
+              break;
+            }
+            case("1"): {
+              this.recipe.cookingTime = 'up to 1 hour';
+              break;
+            }
+            case("1.5"): {
+              this.recipe.cookingTime = 'up to 1.5 hours';
+              break;
+            }
+            case("2"): {
+              this.recipe.cookingTime = 'up to 2 hours';
+              break;
+            }
+            case("2.1"): {
+              this.recipe.cookingTime = 'over 2 hours';
+              break;
+            }
+          }
         },
         (err) => { console.log('error is', err.message) }
       )

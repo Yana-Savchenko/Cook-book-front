@@ -16,7 +16,7 @@ import { environment } from '../../../environments/environment';
   providers: [NgbRatingConfig]
 })
 export class RecipeCardComponent implements OnInit {
-  @Input() recipe = {};
+  @Input() recipe = null;
 
   @Output() buttonPress = new EventEmitter();
   
@@ -27,6 +27,32 @@ export class RecipeCardComponent implements OnInit {
    }
 
   ngOnInit() {
+    switch(this.recipe.cooking_time) {
+      case("0.25"): {
+        this.recipe.cooking_time = 'up to 15 minutes';
+        break;
+      }
+      case("0.5"): {
+        this.recipe.cooking_time = 'up to 30 minutes';
+        break;
+      }
+      case("1"): {
+        this.recipe.cooking_time = 'up to 1 hour';
+        break;
+      }
+      case("1.5"): {
+        this.recipe.cooking_time = 'up to 1.5 hours';
+        break;
+      }
+      case("2"): {
+        this.recipe.cooking_time = 'up to 2 hours';
+        break;
+      }
+      case("2.1"): {
+        this.recipe.cooking_time = 'over 2 hours';
+        break;
+      }
+    }
   }
 
   onButtonPress() {
