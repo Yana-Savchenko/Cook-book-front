@@ -14,7 +14,17 @@ import { environment } from '../../../environments/environment';
 export class RecipeDetailsComponent implements OnInit {
 
 
-  private recipe:RecipeDetails = null;
+  private recipe:RecipeDetails = {
+    title: '',
+    content: '',
+    category: '',
+    complexity: '',
+    cookingTime: '',
+    dishPhoto: {
+      name: '',
+      path: '',
+    },
+  };
   private servUrl:string = environment.serverUrl; 
 
   constructor(private route: ActivatedRoute, private httpService: RecipeHttpService) {

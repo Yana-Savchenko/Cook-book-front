@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { CategoryNavComponent } from './category-nav/category-nav.component';
 import { SectionHeaderComponent } from './section-header/section-header.component';
-import { RecipeCardComponent } from './recipe-card/recipe-card.component'
+import { RecipeCardComponent } from './recipe-card/recipe-card.component';
+import { RecipeListComponent } from './recipe-list/recipe-list.component'
 
 const declarations = [
   CategoryNavComponent,
   SectionHeaderComponent,
-  RecipeCardComponent
+  RecipeCardComponent,
+  RecipeListComponent
 ];
 
 const modules = [
   CommonModule,
+  NgxPaginationModule
+
 ];
 
 @NgModule({
@@ -28,6 +33,7 @@ const modules = [
   ],
   declarations: [
     ...declarations,
+    RecipeListComponent,
   ],
 })
 export class SharedModule { }

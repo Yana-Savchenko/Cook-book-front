@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let recipe of recipes | paginate: { itemsPerPage: 9, currentPage: p }">
+    <app-recipe-card [recipe]="recipe" (buttonPress)="onCardPress($event)"></app-recipe-card>
+  </li>
+</ul>
+<div class="pagination">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
