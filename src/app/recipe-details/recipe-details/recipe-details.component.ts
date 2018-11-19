@@ -14,7 +14,7 @@ import { environment } from '../../../environments/environment';
 export class RecipeDetailsComponent implements OnInit {
 
 
-  private recipe:RecipeDetails = {
+  private recipe: RecipeDetails = {
     title: '',
     content: '',
     category: '',
@@ -25,27 +25,22 @@ export class RecipeDetailsComponent implements OnInit {
       path: '',
     },
   };
-  private servUrl:string = environment.serverUrl; 
+  private servUrl: string = environment.serverUrl;
 
-  constructor(private route: ActivatedRoute, private httpService: RecipeHttpService) {
-    console.log('DETAILS LOADING wow so cool')
-
-  }
+  constructor(private route: ActivatedRoute, private httpService: RecipeHttpService) { }
 
   ngOnInit() {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-        console.log(params)
-        console.log(params.get('id'))
         return this.httpService.getRecipeDetails(params.get('id'))
       })
     )
-    .subscribe(
-      (data:RecipeDetails) => {
-        this.recipe = data;
-      }, 
-      (err) => { console.log('error is', err.message)}
-    )
+      .subscribe(
+        (data: RecipeDetails) => {
+          this.recipe = data;
+        },
+        (err) => { console.log('error is', err.message) }
+      )
   }
 
 }

@@ -33,12 +33,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label>Complexity</label>
-        <select class="form-control" name="complexity" formControlName="complexity">
-          <option>Easy</option>
-          <option>Medium</option>
-          <option>Hard</option>
-        </select>
+        <label>Complexity</label><br>
+        <ngb-rating [(rate)]="currentRate"></ngb-rating>
       </div>
     </div>
     <div class="form-group">

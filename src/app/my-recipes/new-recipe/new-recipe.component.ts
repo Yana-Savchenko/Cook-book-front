@@ -15,6 +15,7 @@ export class NewRecipeComponent implements OnInit {
   private headerText: string = 'New recipe';
   private foto: string = '';
   private file = null;
+  private currentRate = 1;
   newRecipeForm: FormGroup;
 
   constructor(private router: Router, private sanitizer: DomSanitizer, private httpService: NewRecipeHttpService) {
@@ -25,7 +26,6 @@ export class NewRecipeComponent implements OnInit {
       "dish_photo": new FormControl("",),
       "cooking_time": new FormControl("", Validators.required),
       "category_id": new FormControl("", Validators.required),
-      "complexity": new FormControl("", Validators.required)
     });
 
   }
@@ -39,7 +39,7 @@ export class NewRecipeComponent implements OnInit {
     formData.append("content", this.newRecipeForm.value.content);
     formData.append("cooking_time", this.newRecipeForm.value.cooking_time);
     formData.append("category_id", this.newRecipeForm.value.category_id);
-    formData.append("complexity", this.newRecipeForm.value.complexity);
+    formData.append("complexity", String(this.currentRate));
     formData.append("dish_photo", this.file)
     this.httpService.postNewRecipe(formData).subscribe(
       (data: any) => {

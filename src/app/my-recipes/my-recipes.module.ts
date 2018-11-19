@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { MyRecipesComponent } from './my-recipes/my-recipes.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
@@ -25,6 +26,7 @@ const routerConfig: Routes = [{
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule
   ],
   declarations: [MyRecipesComponent, NewRecipeComponent]
 })
