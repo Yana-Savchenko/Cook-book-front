@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: 'my-recipes', loadChildren: './my-recipes/my-recipes.module#MyRecipesModule' },
   { path: 'recipe', loadChildren: './recipe-details/recipe-details.module#RecipeDetailsModule' },
   { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' },
-  { path: 'favorites', loadChildren: './favorites/favorites.module#FavoritesModule' },
 ];
 
 @NgModule({
