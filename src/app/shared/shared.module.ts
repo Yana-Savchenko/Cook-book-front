@@ -7,13 +7,15 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CategoryNavComponent } from './category-nav/category-nav.component';
 import { SectionHeaderComponent } from './section-header/section-header.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component'
+import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { SortAndFilterComponent } from './sort-and-filter/sort-and-filter.component'
 
 const declarations = [
   CategoryNavComponent,
   SectionHeaderComponent,
   RecipeCardComponent,
-  RecipeListComponent
+  RecipeListComponent,
+  SortAndFilterComponent
 ];
 
 const modules = [
@@ -35,7 +37,6 @@ const modules = [
   ],
   declarations: [
     ...declarations,
-    RecipeListComponent,
   ],
 })
 export class SharedModule { }

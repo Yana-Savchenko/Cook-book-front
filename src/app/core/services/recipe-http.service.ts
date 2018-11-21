@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment'
 
 export interface Recipe {
@@ -25,7 +25,7 @@ export interface RecipeDetails {
 export class RecipeHttpService {
 
   servUrl = environment.serverUrl;
-  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') });
+  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') || '' });
 
 
   constructor(private http: HttpClient) { }
@@ -38,13 +38,15 @@ export class RecipeHttpService {
 
   getCategryRecipes(category) {
 
-    return this.http.get(`${this.servUrl}/recipes/${category}`);
+    const params = new HttpParams().set('category_id', category);
+
+    return this.http.get(`${this.servUrl}/recipes`, {headers: this.headersConfig, params});
 
   }
 
   getAllRecipes() {
 
-    return this.http.get(`${this.servUrl}/recipes`);
+    return this.http.get(`${this.servUrl}/recipes`, { headers: this.headersConfig });
 
   }
 
@@ -52,5 +54,9 @@ export class RecipeHttpService {
 
     return this.http.get(`${this.servUrl}/recipes/recipe/${id}`);
 
+  }
+
+  getFavoriteRecipes() {
+    return this.http.get(`${this.servUrl}/recipes/favorite`, { headers: this.headersConfig });
   }
 }
