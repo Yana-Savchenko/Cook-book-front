@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 
 import { RecipeHttpService, RecipeDetails } from '../../core/services/recipe-http.service';
 import { environment } from '../../../environments/environment';
@@ -9,11 +10,12 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
-  styleUrls: ['./recipe-details.component.scss']
+  styleUrls: ['./recipe-details.component.scss'],
+  providers: [NgbRatingConfig]
 })
 export class RecipeDetailsComponent implements OnInit {
 
-
+  private favoriteButton = 'Add to favorites';
   private recipe: RecipeDetails = {
     title: '',
     content: '',
@@ -24,10 +26,14 @@ export class RecipeDetailsComponent implements OnInit {
       name: '',
       path: '',
     },
+    isLiked: false,
   };
   private servUrl: string = environment.serverUrl;
 
-  constructor(private route: ActivatedRoute, private httpService: RecipeHttpService) { }
+
+  constructor(private route: ActivatedRoute, private httpService: RecipeHttpService, config: NgbRatingConfig) { 
+    config.readonly = true;
+  }
 
   ngOnInit() {
     this.route.paramMap.pipe(
@@ -63,10 +69,17 @@ export class RecipeDetailsComponent implements OnInit {
               this.recipe.cookingTime = 'over 2 hours';
               break;
             }
+          };
+          if (this.recipe.isLiked) {
+            this.favoriteButton = 'Remove from favorites';
           }
         },
         (err) => { console.log('error is', err.message) }
       )
+  }
+
+  toggleFavorite() {
+
   }
 
 }

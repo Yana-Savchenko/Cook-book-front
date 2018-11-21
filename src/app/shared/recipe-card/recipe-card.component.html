@@ -5,6 +5,6 @@
 <p><span>cooking time:</span> {{recipe.cooking_time}}</p>
 <p><span>complexity:</span> <ngb-rating [rate]="recipe.complexity"></ngb-rating></p>
 <div class="recipe-controls">
-  <i class="fas fa-heart" [ngClass]="{liked: recipe.isLiked}"></i>
+  <i class="fas fa-heart" [ngClass]="{liked: favorite}" (click)="toggleFavorite()"></i>
   <a [routerLink]="['/recipe', recipe.id]">see more...</a>
 </div>

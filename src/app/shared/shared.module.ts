@@ -8,7 +8,7 @@ import { CategoryNavComponent } from './category-nav/category-nav.component';
 import { SectionHeaderComponent } from './section-header/section-header.component';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
-import { SortAndFilterComponent } from './sort-and-filter/sort-and-filter.component'
+import { SortAndFilterComponent } from './sort-and-filter/sort-and-filter.component';
 
 const declarations = [
   CategoryNavComponent,

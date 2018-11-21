@@ -17,6 +17,7 @@ export interface RecipeDetails {
     name:string,
     path:string,
   },
+  isLiked?:boolean;
 }
 
 @Injectable({
@@ -45,18 +46,23 @@ export class RecipeHttpService {
   }
 
   getAllRecipes() {
-
     return this.http.get(`${this.servUrl}/recipes`, { headers: this.headersConfig });
-
   }
 
   getRecipeDetails(id) {
-
     return this.http.get(`${this.servUrl}/recipes/recipe/${id}`);
-
   }
+
+  // interaction with favorite recipes
 
   getFavoriteRecipes() {
     return this.http.get(`${this.servUrl}/recipes/favorite`, { headers: this.headersConfig });
+  }
+  postFavoriteRecipes(body) {
+    return this.http.post(`${this.servUrl}/recipes/favorite`,  body, { headers: this.headersConfig });
+  }
+  deleteFavoriteRecipes(id) {
+    const params = new HttpParams().set('recipe_id', id);
+    return this.http.delete(`${this.servUrl}/recipes/favorite`, { headers: this.headersConfig, params });
   }
 }
