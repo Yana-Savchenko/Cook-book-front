@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
 

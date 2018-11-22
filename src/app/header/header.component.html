@@ -3,8 +3,15 @@
     <h2><a routerLink="/home">Easy<span>Cook</span></a></h2>
     <div class="search_toggle">
       <div class="searchbox">
-        <input type="text" name="search" value="" placeholder="Search recipe here" class="form-control input-lg" />
-        <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+        <input 
+        type="text" 
+        name="search" 
+        placeholder="Search recipe here"
+        class="form-control input-lg"
+        [(ngModel)]="searchData"
+        (keypress)="submit($event)"
+        />
+        <button type="button" class="btn btn-default btn-lg" (click)="submit($event)"><i class="fa fa-search"></i></button>
       </div>
     </div>
     <div *ngIf="isAuth;else other_content" class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
