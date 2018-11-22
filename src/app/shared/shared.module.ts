@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 import { CategoryNavComponent } from './category-nav/category-nav.component';
 import { SectionHeaderComponent } from './section-header/section-header.component';
@@ -21,7 +22,8 @@ const declarations = [
 const modules = [
   CommonModule,
   NgxPaginationModule,
-  NgbModule
+  NgbModule,
+  FormsModule
 
 ];
 

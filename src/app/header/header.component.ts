@@ -37,9 +37,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   submit(event) {
     if (event.keyCode === 13 || event.type === 'click') {
-      console.log(this.searchData);
-      this.router.navigate(['/search'], {queryParams:{'search_data': this.searchData}});
       
+      this.router.navigate(['/search'], {queryParams:{'search_data': this.searchData}});
+      this.searchData = '';
     }
   }
 }
