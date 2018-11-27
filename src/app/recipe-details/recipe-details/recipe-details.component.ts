@@ -43,6 +43,7 @@ export class RecipeDetailsComponent implements OnInit {
     )
       .subscribe(
         (data: RecipeDetails) => {
+          console.log(data);
           this.recipe = data;
           switch(this.recipe.cookingTime) {
             case("0.25"): {

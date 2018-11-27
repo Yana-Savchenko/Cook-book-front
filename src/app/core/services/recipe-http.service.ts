@@ -19,6 +19,7 @@ export interface RecipeDetails {
     path:string,
   },
   isLiked?:boolean;
+  isEdit?:boolean;
 }
 
 @Injectable({
@@ -51,7 +52,7 @@ export class RecipeHttpService {
   }
 
   getRecipeDetails(id) {
-    return this.http.get(`${this.servUrl}/recipes/recipe/${id}`);
+    return this.http.get(`${this.servUrl}/recipes/recipe/${id}`, { headers: this.headersConfig });
   }
 
   // interaction with favorite recipes

@@ -1,10 +1,15 @@
 <p>Search Criteria</p>
-<input type="text" [(ngModel)]="search_data">
+<input type="text" [(ngModel)]="search_data" (keypress)="search($event)">
 <div class="controls">
   <div class="sort">
     <p>Sort by</p>
-    <p>Complexity <i class="far fa-caret-square-down"><i class="far fa-caret-square-up"></i></i></p>
-    <p>Cooking time <i class="far fa-caret-square-down"><i class="far fa-caret-square-up"></i></i></p>
+    <p class="complexity" (click)="sortComplexity()">Complexity 
+      <i *ngIf="complexity.down" class="far fa-caret-square-down"></i>
+      <i *ngIf="complexity.up" class="far fa-caret-square-up"></i>
+    </p>
+    <p class="cooking-time" (click)="sortTime()">Cooking time 
+      <i *ngIf="cooking_time.down" class="far fa-caret-square-down"></i>
+      <i *ngIf="cooking_time.up" class="far fa-caret-square-up"></i></p>
   </div>
   <div class="filter">
       <p>Search in</p>

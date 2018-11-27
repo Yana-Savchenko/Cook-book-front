@@ -3,6 +3,10 @@
     <app-section-header [header]="headerText"></app-section-header>
     <app-sort-and-filter
     [search_data]="search_data"
-    (sortByCategory)="sortByCategory($event)"></app-sort-and-filter>
+    (sortByCategory)="sortByCategory($event)"
+    (sortByComplexity)="sortByComplexity($event)"
+    (sortByTime)="sortByTime($event)"
+    (newSearchData)="newSearchData($event)"
+    ></app-sort-and-filter>
     <app-recipe-list [recipes]="recipes"></app-recipe-list>
 </div>

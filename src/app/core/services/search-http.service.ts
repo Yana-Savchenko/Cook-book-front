@@ -14,16 +14,19 @@ export class SearchHttpService {
 
   constructor(private http: HttpClient) { }
 
-  searchRecipes(data, category = '0') {
+  searchRecipes(data, category = '0', complexity = '', cookingTime = '') {
 
     let params = new HttpParams().set('search_data', data);
-    console.log(category);
 
     if (category !=='0') {
-      console.log("category");
       params = params.append('category_id', category);
     }
-    console.log(params);
+    if (complexity) {
+      params = params.append('sort_complexity', complexity);
+    }
+    if (cookingTime) {
+      params = params.append('sort_cooking_time', cookingTime);
+    }
     return this.http.get(`${this.servUrl}/recipes/search`, { headers: this.headersConfig, params });
 
   }
