@@ -1,13 +1,21 @@
 <app-category-nav></app-category-nav>
 <div class="wrapper">
-    <app-section-header [header]="recipe.title"></app-section-header>
+  <app-section-header [header]="recipe.title"></app-section-header>
+  <div *ngIf="!isEdit">
     <div class="dish-photo">
       <img src="{{servUrl}}{{recipe.dishPhoto.path}}">
     </div>
     <p><span class="bold">Category: </span>{{recipe.category}}</p>
-    <p><span class="bold">Conplexity: </span><ngb-rating [rate]="recipe.complexity"></ngb-rating></p>
-    <p><span class="bold">Cooking time: </span>{{recipe.cookingTime}}</p>
+    <p><span class="bold">Conplexity: </span>
+      <ngb-rating [rate]="recipe.complexity"></ngb-rating>
+    </p>
+    <p><span class="bold">Cooking time: </span>{{recipe.cookingTimeText}}</p>
     <p><span class="bold">Description</span></p>
     <p>{{recipe.content}}</p>
-    <button class="btn btn-sm btn-primary" type="button" (click) = "toggleFavorite()">{{favoriteButton}}</button>
+    <button *ngIf="recipe.isEdit" class="btn btn-sm btn-primary" type="button" (click)="editRecipe()">Edit</button>
+  </div>
+  <div *ngIf="isEdit">
+    <app-recipe-edit [recipe]="recipe" (isEdit)="cancelEdit($event)" (isUpd)="updCompleted($event)" [recipeId]="recipeId"></app-recipe-edit>
+  </div>
+
 </div>

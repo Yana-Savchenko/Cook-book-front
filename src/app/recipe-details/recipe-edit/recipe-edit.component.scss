@@ -1,0 +1,17 @@
+form {
+    padding: 1rem;
+}
+textarea {
+    height: 20rem;
+    resize: none;
+}
+.select {
+    display: flex;
+    justify-content: space-between;
+    &>div {
+        width: 30%;
+    }
+}
+img {
+    height: 13rem;
+}

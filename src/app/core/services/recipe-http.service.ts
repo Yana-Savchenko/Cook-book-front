@@ -12,8 +12,10 @@ export interface RecipeDetails {
   title:string,
   content:string,
   category:string,
-  complexity:string,
+  category_id: number,
+  complexity:number,
   cookingTime:string,
+  cookingTimeText:string,
   dishPhoto: {
     name:string,
     path:string,
@@ -53,6 +55,11 @@ export class RecipeHttpService {
 
   getRecipeDetails(id) {
     return this.http.get(`${this.servUrl}/recipes/recipe/${id}`, { headers: this.headersConfig });
+  }
+
+  updateRecipeDetails(id, body) {
+    console.log('body', body);
+    return this.http.put(`${this.servUrl}/recipes/recipe/${id}`, body, { headers: this.headersConfig });
   }
 
   // interaction with favorite recipes

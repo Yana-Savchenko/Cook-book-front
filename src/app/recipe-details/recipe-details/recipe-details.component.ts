@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-// import { Observable } from 'rxjs';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import {NgbRatingConfig} from '@ng-bootstrap/ng-bootstrap';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 import { RecipeHttpService, RecipeDetails } from '../../core/services/recipe-http.service';
 import { environment } from '../../../environments/environment';
@@ -16,64 +15,74 @@ import { environment } from '../../../environments/environment';
 export class RecipeDetailsComponent implements OnInit {
 
   private favoriteButton = 'Add to favorites';
+  private isEdit = false;
+  private recipeId = null;
   private recipe: RecipeDetails = {
     title: '',
     content: '',
     category: '',
-    complexity: '',
+    category_id: 1,
+    complexity: 1,
     cookingTime: '',
+    cookingTimeText: '',
     dishPhoto: {
       name: '',
       path: '',
     },
     isLiked: false,
+    isEdit: false,
   };
   private servUrl: string = environment.serverUrl;
 
 
-  constructor(private route: ActivatedRoute, private httpService: RecipeHttpService, config: NgbRatingConfig) { 
+  constructor(
+
+    private route: ActivatedRoute,
+    private httpService: RecipeHttpService,
+    config: NgbRatingConfig,
+    private router: Router
+  ) {
     config.readonly = true;
+
   }
 
   ngOnInit() {
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-        return this.httpService.getRecipeDetails(params.get('id'))
+        this.recipeId = params.get('id');
+        return this.httpService.getRecipeDetails(this.recipeId);
       })
     )
       .subscribe(
         (data: RecipeDetails) => {
           console.log(data);
           this.recipe = data;
-          switch(this.recipe.cookingTime) {
-            case("0.25"): {
-              this.recipe.cookingTime = 'up to 15 minutes';
+          switch (this.recipe.cookingTime) {
+            case ("0.25"): {
+              this.recipe.cookingTimeText = 'up to 15 minutes';
               break;
             }
-            case("0.5"): {
-              this.recipe.cookingTime = 'up to 30 minutes';
+            case ("0.5"): {
+              this.recipe.cookingTimeText = 'up to 30 minutes';
               break;
             }
-            case("1"): {
-              this.recipe.cookingTime = 'up to 1 hour';
+            case ("1"): {
+              this.recipe.cookingTimeText = 'up to 1 hour';
               break;
             }
-            case("1.5"): {
-              this.recipe.cookingTime = 'up to 1.5 hours';
+            case ("1.5"): {
+              this.recipe.cookingTimeText = 'up to 1.5 hours';
               break;
             }
-            case("2"): {
-              this.recipe.cookingTime = 'up to 2 hours';
+            case ("2"): {
+              this.recipe.cookingTimeText = 'up to 2 hours';
               break;
             }
-            case("2.1"): {
-              this.recipe.cookingTime = 'over 2 hours';
+            case ("2.1"): {
+              this.recipe.cookingTimeText = 'over 2 hours';
               break;
             }
           };
-          if (this.recipe.isLiked) {
-            this.favoriteButton = 'Remove from favorites';
-          }
         },
         (err) => { console.log('error is', err.message) }
       )
@@ -82,5 +91,52 @@ export class RecipeDetailsComponent implements OnInit {
   toggleFavorite() {
 
   }
-
+  editRecipe() {
+    this.isEdit = true;
+  }
+  cancelEdit(event) {
+    this.isEdit = event;
+  }
+  updCompleted(event) {
+    this.isEdit = event;
+    this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        this.recipeId = params.get('id');
+        return this.httpService.getRecipeDetails(this.recipeId);
+      })
+    )
+      .subscribe(
+        (data: RecipeDetails) => {
+          console.log(data);
+          this.recipe = data;
+          switch (this.recipe.cookingTime) {
+            case ("0.25"): {
+              this.recipe.cookingTimeText = 'up to 15 minutes';
+              break;
+            }
+            case ("0.5"): {
+              this.recipe.cookingTimeText = 'up to 30 minutes';
+              break;
+            }
+            case ("1"): {
+              this.recipe.cookingTimeText = 'up to 1 hour';
+              break;
+            }
+            case ("1.5"): {
+              this.recipe.cookingTimeText = 'up to 1.5 hours';
+              break;
+            }
+            case ("2"): {
+              this.recipe.cookingTimeText = 'up to 2 hours';
+              break;
+            }
+            case ("2.1"): {
+              this.recipe.cookingTimeText = 'over 2 hours';
+              break;
+            }
+          };
+        },
+        (err) => { console.log('error is', err.message) }
+      )
+  }
 }

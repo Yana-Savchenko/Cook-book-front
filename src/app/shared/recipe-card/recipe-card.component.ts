@@ -23,6 +23,7 @@ export class RecipeCardComponent implements OnInit {
 
   private servUrl = environment.serverUrl;
   private favorite = false;
+  
   constructor(config: NgbRatingConfig, private httpService: RecipeHttpService) {
     config.readonly = true;
   }
