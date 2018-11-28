@@ -18,7 +18,7 @@ export interface User {
 export class ProfileHttpService {
 
   servUrl = environment.serverUrl;
-  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') });
+  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') || "" });
 
 
   constructor(private http: HttpClient) { }

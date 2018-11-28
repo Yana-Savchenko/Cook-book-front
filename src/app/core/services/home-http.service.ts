@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment'
 export class HomeHttpService {
 
   servUrl = environment.serverUrl;
-  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') });
+  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') || '' });
 
   constructor(private http: HttpClient) { }
 
