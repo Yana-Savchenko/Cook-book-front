@@ -67,7 +67,6 @@ export class RecipeEditComponent implements OnInit {
     }
     this.httpService.updateRecipeDetails(this.recipeId, formData).subscribe(
         (data: any) => {
-          console.log(data);
           this.isUpd.emit(false);
         },
         error => console.log(error)

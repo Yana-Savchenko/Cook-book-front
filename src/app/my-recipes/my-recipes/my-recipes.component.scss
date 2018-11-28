@@ -1,13 +1,13 @@
-.header {
-    background-color: #96c031;
-    color: #FFF;
-    margin-top: 5px;
-    padding-left: 1rem;
-    
-    h3 {
-        line-height: 3rem;
-    }
-}
 .wrapper {
-
+    .btn-primary, .btn-primary:active, .btn-primary:hover {
+        background-color:  #96c031;
+        border-color:  #96c031;
+        box-shadow: none;
+        margin-left: 10px;
+    }
+    .btn-primary:focus {
+        background-color:  #76942d;;
+        border-color:  #76942d;;
+        box-shadow: none;
+    }
 } 

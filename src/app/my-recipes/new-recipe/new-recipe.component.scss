@@ -16,6 +16,16 @@
         height: 20rem;
         resize: none;
     }
+    .btn-primary, .btn-primary:active, .btn-primary:hover {
+        background-color:  #96c031;
+        border-color:  #96c031;
+        box-shadow: none;
+    }
+    .btn-primary:focus {
+        background-color:  #76942d;;
+        border-color:  #76942d;;
+        box-shadow: none;
+    }
 } 
 
 .select {

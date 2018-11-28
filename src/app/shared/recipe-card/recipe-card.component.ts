@@ -62,18 +62,15 @@ export class RecipeCardComponent implements OnInit {
     if (this.favorite) {
       this.httpService.deleteFavoriteRecipes(this.recipe.id).subscribe(
         (data: any) => {
-          console.log(data);
           this.favorite = !this.favorite;
         },
         error => console.log(error)
       );
 
     } else {
-      console.log(this.recipe.id);
       const body = { recipe_id: this.recipe.id };
       this.httpService.postFavoriteRecipes(body).subscribe(
         (data: any) => {
-          console.log(data);
           this.favorite = !this.favorite;
         },
         error => console.log(error)

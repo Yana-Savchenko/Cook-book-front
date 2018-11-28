@@ -18,7 +18,6 @@ export class FavoritesComponent implements OnInit {
     this.httpService.getFavoriteRecipes().subscribe(
       (data: any) => {
         this.recipes = data;
-        console.log(this.recipes);
       },
       error => console.log(error)
     );

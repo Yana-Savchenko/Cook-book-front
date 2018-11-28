@@ -35,7 +35,6 @@ export class SearchComponent implements OnInit {
   }
 
   sortByCategory(event) {
-    console.log('cat', this.search_data);
     this.sortCategory = event;
     this.searchService.searchRecipes(this.search_data, this.sortCategory, this.sortComplexity, this.sortTime)
       .subscribe(
@@ -46,7 +45,6 @@ export class SearchComponent implements OnInit {
   sortByComplexity(event) {
     this.sortComplexity = event;
     if (this.sortComplexity) {
-      console.log('compl', this.search_data);
       this.searchService.searchRecipes(this.search_data, this.sortCategory, this.sortComplexity)
         .subscribe(
           (data: any) => {
@@ -57,7 +55,6 @@ export class SearchComponent implements OnInit {
   sortByTime(event) {
     this.sortTime = event;
     if (this.sortTime) {
-      console.log('time', this.search_data);
       this.searchService.searchRecipes(this.search_data, this.sortCategory, this.sortComplexity, this.sortTime)
         .subscribe(
           (data: any) => {
