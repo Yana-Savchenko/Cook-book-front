@@ -1,25 +1,28 @@
-<p>Search Criteria</p>
-<input type="text" [(ngModel)]="search_data" (keypress)="search($event)">
+<div class="search-criteria">
+  <p>Search сriteria</p>
+  <input type="text" [(ngModel)]="search_data" (keypress)="search($event)">
+</div>
 <div class="controls">
   <div class="sort">
     <p>Sort by</p>
-    <p class="complexity" (click)="sortComplexity()">Complexity 
+    <p class="complexity" (click)="sortComplexity()">Complexity
       <i *ngIf="complexity.down" class="far fa-caret-square-down"></i>
       <i *ngIf="complexity.up" class="far fa-caret-square-up"></i>
     </p>
-    <p class="cooking-time" (click)="sortTime()">Cooking time 
+    <p class="cooking-time" (click)="sortTime()">Cooking time
       <i *ngIf="cooking_time.down" class="far fa-caret-square-down"></i>
-      <i *ngIf="cooking_time.up" class="far fa-caret-square-up"></i></p>
+      <i *ngIf="cooking_time.up" class="far fa-caret-square-up"></i>
+    </p>
   </div>
   <div class="filter">
-      <p>Search in</p>
-      <select class="form-control" name="category_id" [(ngModel)]="category" (change)="categoryChange()">
-        <option value=0 selected>All recipes</option>
-        <option value=1>Appetizers&Snack</option>
-        <option value=2>Breakfast&Brunch</option>
-        <option value=3>Dessert</option>
-        <option value=4>Dinner</option>
-        <option value=5>Drinks</option>
-      </select>
+    <p>Search in</p>
+    <select class="form-control" name="category_id" [(ngModel)]="category" (change)="categoryChange()">
+      <option value=0 selected>All recipes</option>
+      <option value=1>Appetizers&Snack</option>
+      <option value=2>Breakfast&Brunch</option>
+      <option value=3>Dessert</option>
+      <option value=4>Dinner</option>
+      <option value=5>Drinks</option>
+    </select>
   </div>
 </div>

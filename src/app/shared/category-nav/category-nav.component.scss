@@ -1,6 +1,6 @@
 .navbar-nav {
-    width: 80%;
-    margin: auto;
+    // width: 80%;
+    // margin: auto;
     padding-left: 1rem;
     font-size: 20px;
     a {
@@ -12,4 +12,5 @@
     a.hover a:active {
         color: rgba(255, 255, 255, 0.5);
     }
+    background-color: #363c42;
 }

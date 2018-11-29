@@ -9,7 +9,10 @@ img {
     object-fit: cover;
 }
 h3 {
+    white-space: nowrap;
+    overflow: hidden;
     text-align: center;
+    text-overflow: ellipsis;
 }
 span {
     font-weight: 600;

@@ -1,9 +1,13 @@
+P {
+    margin-bottom: 0;
+}
 .controls {
     display: flex;
     justify-content: space-between;
     padding: 10px;
     .sort {
         display: flex;
+        align-items: center;
         width: 45%;
         p{
             margin-right: 20px;
@@ -11,11 +15,16 @@
     }
     .filter {
         display: flex;
+        align-items: center;
         width: 45%;
         p {
             width: 30%;
         }
     }
+}
+.search-criteria {
+    display: flex;
+    align-items: center;
 }
 .complexity, .cooking-time {
     background-color: #96c031;
