@@ -14,18 +14,24 @@ export class SearchHttpService {
 
   constructor(private http: HttpClient) { }
 
-  searchRecipes(data, category = '0', complexity = '', cookingTime = '') {
+  searchRecipes(searchParams) {
 
-    let params = new HttpParams().set('search_data', data);
+    let params = new HttpParams().set('search_data', searchParams.search_data);
 
-    if (category !=='0') {
-      params = params.append('category_id', category);
+    if (searchParams.sortCategory !=='0') {
+      params = params.append('category_id', searchParams.sortCategory);
     }
-    if (complexity) {
-      params = params.append('sort_complexity', complexity);
+    if (searchParams.sortComplexity) {
+      params = params.append('sort_complexity', searchParams.sortComplexity);
     }
-    if (cookingTime) {
-      params = params.append('sort_cooking_time', cookingTime);
+    if (searchParams.sortTime) {
+      params = params.append('sort_cooking_time', searchParams.sortTime);
+    }
+    if (searchParams.complexityFilter) {
+      params = params.append('filter_complexity', searchParams.complexityFilter.toString());
+    }
+    if (searchParams.timeFilter) {
+      params = params.append('filter_time', searchParams.timeFilter);
     }
     return this.http.get(`${this.servUrl}/recipes/search`, { headers: this.headersConfig, params });
 

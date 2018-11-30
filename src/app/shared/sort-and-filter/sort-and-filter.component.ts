@@ -16,6 +16,8 @@ export class SortAndFilterComponent implements OnInit {
     up: false,
     down: false
   };
+  private currentComplexity = 0;
+  private currentTime = '';
 
   constructor() { }
 
@@ -24,6 +26,8 @@ export class SortAndFilterComponent implements OnInit {
   @Output() sortByComplexity = new EventEmitter<string>();
   @Output() sortByTime = new EventEmitter<string>();
   @Output() newSearchData = new EventEmitter<string>();
+  @Output() timeFilter = new EventEmitter<string>();
+  @Output() comlexityFilter = new EventEmitter<number>();
 
   ngOnInit() {
   }
@@ -50,6 +54,7 @@ export class SortAndFilterComponent implements OnInit {
       this.cooking_time.down = false;
       this.sortByTime.emit('');
       this.sortByComplexity.emit('down');
+      console.log(this.sortByComplexity);
     }
 
   }
@@ -68,5 +73,13 @@ export class SortAndFilterComponent implements OnInit {
       this.sortByComplexity.emit('');
       this.sortByTime.emit('down');
     }
+  }
+
+  complexityChange(event) {
+    this.comlexityFilter.emit(this.currentComplexity);
+  }
+
+  cookingTimeChange() {
+    this.timeFilter.emit(this.currentTime);
   }
 }

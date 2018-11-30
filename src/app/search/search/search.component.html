@@ -7,6 +7,8 @@
     (sortByComplexity)="sortByComplexity($event)"
     (sortByTime)="sortByTime($event)"
     (newSearchData)="newSearchData($event)"
+    (comlexityFilter)="filterByComplexity($event)"
+    (timeFilter)="filterByTime($event)"
     ></app-sort-and-filter>
     <app-recipe-list [recipes]="recipes"></app-recipe-list>
 </div>

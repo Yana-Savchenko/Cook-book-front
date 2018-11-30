@@ -5,26 +5,33 @@ P {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    .sort {
-        display: flex;
-        align-items: center;
-        width: 45%;
-        p{
-            margin-right: 20px;
-        }
-    }
+    margin-top: 20px;
     .filter {
         display: flex;
         align-items: center;
-        width: 45%;
-        p {
-            width: 30%;
+        width: 33%;
+        border: 1px solid #96c031;
+        border-radius: 3px;
+        padding: 5px; 
+        .title {
+            width: 32%;
+        }
+        input[type="range"]{
+            margin-left: 10px;
+            width: 50%;
+        };
+        select[name="cooking_time"] {
+            width: 60%;
         }
     }
 }
-.search-criteria {
+.sort {
+    margin: 10px 30px 0 5px;
     display: flex;
     align-items: center;
+    p{
+        margin-right: 15px;
+    }
 }
 .complexity, .cooking-time {
     background-color: #96c031;
