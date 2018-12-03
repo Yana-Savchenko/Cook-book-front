@@ -44,6 +44,7 @@ export class NewRecipeComponent implements OnInit {
     this.httpService.postNewRecipe(formData).subscribe(
       (data: any) => {
         console.log(data);
+        this.router.navigate(['my-recipes']);
       },
       error => console.log(error)
     );

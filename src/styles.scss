@@ -21,6 +21,10 @@ body {
     font-weight: 600;
 }
 
+.ngx-pagination .current{
+    background-color: #96c031!important;
+}
+
 @media screen and (min-width: 1500px) {
     .wrapper {
         width: 65%;
