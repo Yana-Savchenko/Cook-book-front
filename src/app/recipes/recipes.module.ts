@@ -10,7 +10,7 @@ import { DinnerRecipesComponent } from './dinner-recipes/dinner-recipes.componen
 import { DrinksRecipesComponent } from './drinks-recipes/drinks-recipes.component';
 import {FavoritesComponent} from './favorites/favorites.component'
 import { SharedModule } from '../shared/shared.module';
-
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routerConfig: Routes = [{
   path: 'all-recipes',
@@ -39,6 +39,7 @@ const routerConfig: Routes = [{
 {
   path: 'favorites',
   component: FavoritesComponent,
+  canActivate: [AuthGuard],
 },
 ];
 

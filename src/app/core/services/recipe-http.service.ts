@@ -30,48 +30,50 @@ export interface RecipeDetails {
 export class RecipeHttpService {
 
   servUrl = environment.serverUrl;
-  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') || '' });
+  headersConfig = new HttpHeaders();
 
 
   constructor(private http: HttpClient) { }
 
   getMyRecipes() {
-
-    return this.http.get(`${this.servUrl}/recipes/my-recipes`, { headers: this.headersConfig });
-
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    return this.http.get(`${this.servUrl}/recipes/my-recipes`, { headers: headersConfig });
   }
 
   getCategryRecipes(category) {
-
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
     const params = new HttpParams().set('category_id', category);
-
-    return this.http.get(`${this.servUrl}/recipes`, {headers: this.headersConfig, params});
-
+    return this.http.get(`${this.servUrl}/recipes`, {headers: headersConfig, params});
   }
 
   getAllRecipes() {
-    return this.http.get(`${this.servUrl}/recipes`, { headers: this.headersConfig });
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    return this.http.get(`${this.servUrl}/recipes`, { headers: headersConfig });
   }
 
   getRecipeDetails(id) {
-    return this.http.get(`${this.servUrl}/recipes/recipe/${id}`, { headers: this.headersConfig });
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    return this.http.get(`${this.servUrl}/recipes/recipe/${id}`, { headers: headersConfig });
   }
 
   updateRecipeDetails(id, body) {
-    console.log('body', body);
-    return this.http.put(`${this.servUrl}/recipes/recipe/${id}`, body, { headers: this.headersConfig });
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    return this.http.put(`${this.servUrl}/recipes/recipe/${id}`, body, { headers: headersConfig });
   }
 
   // interaction with favorite recipes
 
   getFavoriteRecipes() {
-    return this.http.get(`${this.servUrl}/recipes/favorite`, { headers: this.headersConfig });
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    return this.http.get(`${this.servUrl}/recipes/favorite`, { headers: headersConfig });
   }
   postFavoriteRecipes(body) {
-    return this.http.post(`${this.servUrl}/recipes/favorite`,  body, { headers: this.headersConfig });
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    return this.http.post(`${this.servUrl}/recipes/favorite`,  body, { headers: headersConfig });
   }
   deleteFavoriteRecipes(id) {
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
     const params = new HttpParams().set('recipe_id', id);
-    return this.http.delete(`${this.servUrl}/recipes/favorite`, { headers: this.headersConfig, params });
+    return this.http.delete(`${this.servUrl}/recipes/favorite`, { headers: headersConfig, params });
   }
 }

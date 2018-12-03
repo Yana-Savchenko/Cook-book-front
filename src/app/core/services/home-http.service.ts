@@ -8,12 +8,11 @@ import { environment } from '../../../environments/environment'
 export class HomeHttpService {
 
   servUrl = environment.serverUrl;
-  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') || '' });
 
   constructor(private http: HttpClient) { }
 
   getHome() {
-
-    return this.http.get(`${this.servUrl}/recipes/home`, { headers: this.headersConfig });
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    return this.http.get(`${this.servUrl}/recipes/home`, { headers: headersConfig });
   }
 }

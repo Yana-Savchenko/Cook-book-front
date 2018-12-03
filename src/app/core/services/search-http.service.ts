@@ -10,12 +10,12 @@ import { environment } from '../../../environments/environment'
 export class SearchHttpService {
 
   servUrl = environment.serverUrl;
-  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') || '' });
 
   constructor(private http: HttpClient) { }
 
   searchRecipes(searchParams) {
-
+    
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
     let params = new HttpParams().set('search_data', searchParams.search_data);
 
     if (searchParams.sortCategory !=='0') {
@@ -33,7 +33,7 @@ export class SearchHttpService {
     if (searchParams.timeFilter) {
       params = params.append('filter_time', searchParams.timeFilter);
     }
-    return this.http.get(`${this.servUrl}/recipes/search`, { headers: this.headersConfig, params });
+    return this.http.get(`${this.servUrl}/recipes/search`, { headers: headersConfig, params });
 
   }
 }

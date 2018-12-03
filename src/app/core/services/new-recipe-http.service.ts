@@ -8,12 +8,11 @@ import { environment } from '../../../environments/environment'
 export class NewRecipeHttpService {
 
   servUrl = environment.serverUrl;
-  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') });
 
   constructor(private http: HttpClient) { }
 
   postNewRecipe(user: any) {
-
-    return this.http.post(`${this.servUrl}/recipes`, user, {headers: this.headersConfig});
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    return this.http.post(`${this.servUrl}/recipes`, user, {headers: headersConfig});
   }
 }

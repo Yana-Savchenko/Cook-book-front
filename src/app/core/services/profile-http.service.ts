@@ -18,19 +18,21 @@ export interface User {
 export class ProfileHttpService {
 
   servUrl = environment.serverUrl;
-  headersConfig = new HttpHeaders({ 'Authorization': localStorage.getItem('token') || "" });
 
 
   constructor(private http: HttpClient) { }
 
   getUserData() {
-    return this.http.get(`${this.servUrl}/users/profile`, { headers: this.headersConfig });
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    return this.http.get(`${this.servUrl}/users/profile`, { headers: headersConfig });
   }
   updateUserData(user:any) {
-    return this.http.put(`${this.servUrl}/users/profile`, user, { headers: this.headersConfig });
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    return this.http.put(`${this.servUrl}/users/profile`, user, { headers: headersConfig });
   }
 
   updateAvatar(newAvatar:FormData) {
-    return this.http.put(`${this.servUrl}/users/profile/avatar`, newAvatar, { headers: this.headersConfig });
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    return this.http.put(`${this.servUrl}/users/profile/avatar`, newAvatar, { headers: headersConfig });
   }
 }
