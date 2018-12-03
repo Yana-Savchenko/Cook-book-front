@@ -2,5 +2,10 @@
 <div class="wrapper">
     <app-section-header [header]="headerText"></app-section-header>
     <button class="btn btn-lg btn-primary" routerLink="./new-recipe">Add recipe</button>
-    <app-recipe-list [recipes]="recipes"></app-recipe-list>
+    <app-recipe-list *ngIf="recipes[0];else other_content" [recipes]="recipes"></app-recipe-list>
+    <ng-template #other_content>
+        <p class="no-recipes">
+            You didn't add any recipes.
+        </p>
+    </ng-template>
 </div>

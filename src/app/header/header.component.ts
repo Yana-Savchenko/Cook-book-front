@@ -42,4 +42,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.searchData = '';
     }
   }
+
+  signOut() {
+    localStorage.clear();
+    this.authService.setAuth(false);
+    this.router.navigate(['/home']);
+  }
 }
