@@ -38,7 +38,7 @@
     <input type="file" name="dish_photo" accept="image/*,image/jpeg" formControlName="dish_photo" (change)="change($event)" />
   </div>
   <img [src]="sanitize()">
-  <div class="form-group">
+  <div class="form-group controls">
     <button class="btn btn-lg btn-primary" type="submit" [disabled]="newRecipeForm.invalid">Save</button>
     <button class="btn btn-lg btn-primary" (click)="cancelChanges()">Cancel</button>
   </div>

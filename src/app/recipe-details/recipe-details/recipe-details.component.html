@@ -13,7 +13,7 @@
     <p><span class="bold">Favorite: </span><i class="fas fa-heart" [ngClass]="{liked: isLiked}" (click)="toggleFavorite()"></i></p>
     <p><span class="bold">Description</span></p>
     <p>{{recipe.content}}</p>
-    <button *ngIf="recipe.isEdit" class="btn btn-sm btn-primary" type="button" (click)="editRecipe()">Edit</button>
+    <button *ngIf="recipe.isEdit" class="btn btn-lg btn-primary" type="button" (click)="editRecipe()">Edit</button>
   </div>
   <div *ngIf="isEdit">
     <app-recipe-edit [recipe]="recipe" (isEdit)="cancelEdit($event)" (isUpd)="updCompleted($event)" [recipeId]="recipeId"></app-recipe-edit>
