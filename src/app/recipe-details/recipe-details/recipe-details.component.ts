@@ -33,13 +33,14 @@ export class RecipeDetailsComponent implements OnInit {
     isEdit: false,
   };
   private servUrl: string = environment.serverUrl;
+  private isLiked:boolean = false;
 
 
   constructor(
     private route: ActivatedRoute,
     private httpService: RecipeHttpService,
     config: NgbRatingConfig,
-    private router: Router
+    private router: Router,
   ) {
     config.readonly = true;
 
@@ -56,6 +57,8 @@ export class RecipeDetailsComponent implements OnInit {
         (data: RecipeDetails) => {
           console.log(data);
           this.recipe = data;
+          this.isLiked = this.recipe.isLiked;
+          console.log(this.isLiked);
           switch (this.recipe.cookingTime) {
             case ("0.25"): {
               this.recipe.cookingTimeText = 'up to 15 minutes';
@@ -88,7 +91,23 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   toggleFavorite() {
+    if (this.isLiked) {
+      this.httpService.deleteFavoriteRecipes(this.recipeId).subscribe(
+        (data: any) => {
+          this.isLiked = !this.isLiked;
+        },
+        error => console.log(error)
+      );
 
+    } else {
+      const body = { recipe_id: this.recipeId };
+      this.httpService.postFavoriteRecipes(body).subscribe(
+        (data: any) => {
+          this.isLiked = !this.isLiked;
+        },
+        error => console.log(error)
+      );
+    }
   }
   editRecipe() {
     this.isEdit = true;
