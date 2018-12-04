@@ -31,6 +31,11 @@ export class RecipeDetailsComponent implements OnInit {
     },
     isLiked: false,
     isEdit: false,
+    userId: 0,
+    userName: {
+      firstName: '',
+      lastName: '',
+    },
   };
   private servUrl: string = environment.serverUrl;
   private isLiked:boolean = false;

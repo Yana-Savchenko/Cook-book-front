@@ -22,6 +22,11 @@ export interface RecipeDetails {
   },
   isLiked?:boolean;
   isEdit?:boolean;
+  userId?:number;
+  userName?: {
+    firstName:string,
+    lastName:string,
+  };
 }
 
 @Injectable({
@@ -38,6 +43,12 @@ export class RecipeHttpService {
   getMyRecipes() {
     const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
     return this.http.get(`${this.servUrl}/recipes/my-recipes`, { headers: headersConfig });
+  }
+
+  getUserRecipes(userId) {
+    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
+    const params = new HttpParams().set('user_id', userId);
+    return this.http.get(`${this.servUrl}/recipes`, { headers: headersConfig, params });
   }
 
   getCategryRecipes(category) {

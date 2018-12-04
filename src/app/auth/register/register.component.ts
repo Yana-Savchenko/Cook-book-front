@@ -17,6 +17,7 @@ export class User{
 })
 export class RegisterComponent implements OnInit {
 
+  private errMessage:string = '';
   myForm: FormGroup;
   constructor(private httpService: AuthHttpService, private router: Router) {
     this.myForm = new FormGroup({
@@ -39,7 +40,13 @@ export class RegisterComponent implements OnInit {
           this.httpService.setAuth(true);
           this.router.navigate(['/home']);
           },
-        error => console.log(error)
+        error => {
+          console.log(error);
+          if (error.status === 400) {
+            console.log(error.status);
+            this.errMessage = error.error.message;
+          }
+        }
     );
   }
 }

@@ -13,6 +13,6 @@ export class HomeHttpService {
 
   getHome() {
     const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
-    return this.http.get(`${this.servUrl}/recipes/home`, { headers: headersConfig });
+    return this.http.get(`${this.servUrl}/home`, { headers: headersConfig });
   }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import * as _ from 'lodash';
 
 import { SearchHttpService } from '../../core/services/search-http.service';
 

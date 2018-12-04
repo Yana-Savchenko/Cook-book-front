@@ -12,6 +12,8 @@ import { AuthHttpService } from '../../core/services/auth-http.service';
 export class LoginComponent implements OnInit {
   
   myForm: FormGroup;
+  private errMessage:string = '';
+  
   constructor(private httpService: AuthHttpService, private router: Router) {
     this.myForm = new FormGroup({
       "email": new FormControl("", Validators.required),
@@ -30,7 +32,13 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
         this.httpService.setAuth(true);
       },
-      error => console.log(error)
+      error => {
+        console.log(error);
+        if (error.status === 400) {
+          console.log(error.status);
+          this.errMessage = error.error.message;
+        }
+      }
     );
   }
 }
