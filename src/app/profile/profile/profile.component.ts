@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
     avatar: '',
   };
   private avatar: string = '';
+  private errMessage = "";
 
   constructor(private httpService: ProfileHttpService) { }
 
@@ -36,20 +37,14 @@ export class ProfileComponent implements OnInit {
   }
 
   editProfile(event) {
-
     this.visibility = event;
-
   }
 
   cancelEdits(event) {
-
-    console.log('ok');
     this.visibility = event;
-
   }
 
   saveEdits(event) {
-
     this.httpService.updateUserData(event).subscribe(
       () => {
         this.visibility = true;
@@ -61,7 +56,13 @@ export class ProfileComponent implements OnInit {
           error => console.log(error)
         );
       },
-      error => console.log(error)
+      error => {
+        console.log(error);
+        if (error.status === 400) {
+          console.log(error.status);
+          this.errMessage = error.error.message;
+        }
+      }
     );
   }
 

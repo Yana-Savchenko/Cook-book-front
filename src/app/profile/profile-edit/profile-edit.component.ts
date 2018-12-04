@@ -17,6 +17,7 @@ export class ProfileEditComponent implements OnInit {
   }
 
   @Input() userData:User;
+  @Input() errMessage:string;
 
   @Output() cancel = new EventEmitter<boolean>();
   @Output() newData = new EventEmitter<FormGroup>();

@@ -5,7 +5,14 @@
     <div class="row">
       <app-profile-avatar class="col-md-6" [avatar]="userData.avatar" (newAvatar)="changeAvatar($event)"></app-profile-avatar>
       <app-profile-details *ngIf="visibility" class="col-md-6" [userData]="userData" (edit)="editProfile($event)"></app-profile-details>
-      <app-profile-edit *ngIf="!visibility" class="col-md-6" [userData]="userData" (newData)="saveEdits($event)" (cancel)="cancelEdits($event)"></app-profile-edit>
+      <app-profile-edit 
+        *ngIf="!visibility"
+        class="col-md-6"
+        [userData]="userData"
+        (newData)="saveEdits($event)"
+        (cancel)="cancelEdits($event)"
+        [errMessage]="errMessage"
+      ></app-profile-edit>
     </div>
   </div>
 </div>
