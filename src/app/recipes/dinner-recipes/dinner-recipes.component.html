@@ -1,5 +1,11 @@
 <app-category-nav></app-category-nav>
 <div class="wrapper">
     <app-section-header [header]="headerText"></app-section-header>
+    <app-sort-and-filter
+    (searchRes)="searchResults($event)"
+    [disabled]="true"
+    [search_data]=""
+    [category]='4'
+    ></app-sort-and-filter>
     <app-recipe-list [recipes]="recipes"></app-recipe-list>
 </div>

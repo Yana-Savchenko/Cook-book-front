@@ -38,7 +38,7 @@ export class SearchComponent implements OnInit {
         })
   }
 
-  newSearchData(event) {
+  searchResults(event) {
     this.recipes = event;
   }
 }

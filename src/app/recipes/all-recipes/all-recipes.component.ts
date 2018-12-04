@@ -23,4 +23,7 @@ export class AllRecipesComponent implements OnInit {
     );
   }
 
+  searchResults(event) {
+    this.recipes = event;
+  }
 }

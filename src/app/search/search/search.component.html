@@ -3,7 +3,7 @@
     <app-section-header [header]="headerText"></app-section-header>
     <app-sort-and-filter
     [search_data]="searchParams.search_data"
-    (searchRes)="newSearchData($event)"
+    (searchRes)="searchResults($event)"
     ></app-sort-and-filter>
     <app-recipe-list [recipes]="recipes"></app-recipe-list>
 </div>

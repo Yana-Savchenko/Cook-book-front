@@ -9,11 +9,11 @@ import { RecipeHttpService } from '../../core/services/recipe-http.service';
 })
 export class DrinksRecipesComponent implements OnInit {
 
-  private headerText:string = 'Drinks';
+  private headerText: string = 'Drinks';
   private recipes = [];
 
   constructor(private httpService: RecipeHttpService) { }
-  
+
   ngOnInit() {
     this.httpService.getCategryRecipes(5).subscribe(
       (data: any) => {
@@ -22,5 +22,7 @@ export class DrinksRecipesComponent implements OnInit {
       error => console.log(error)
     );
   }
-
+  searchResults(event) {
+    this.recipes = event;
+  }
 }

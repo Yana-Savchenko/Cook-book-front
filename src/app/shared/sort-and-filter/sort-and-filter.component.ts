@@ -30,13 +30,14 @@ export class SortAndFilterComponent implements OnInit {
 
   constructor(private searchService: SearchHttpService) { }
 
-  @Input() search_data;
+  @Input() search_data="";
   @Input() disabled = false;
   @Input() category = '0';
   @Output() searchRes = new EventEmitter<any>();
 
   ngOnInit() {
     this.searchParams.search_data = this.search_data;
+    this.searchParams.sortCategory = this.category;
   }
 
   search(event) {

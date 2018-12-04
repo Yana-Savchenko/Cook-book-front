@@ -23,5 +23,7 @@ export class BreafastRecipesComponent implements OnInit {
       error => console.log(error)
     );
   }
-
+  searchResults(event) {
+    this.recipes = event;
+  }
 }
