@@ -7,7 +7,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SortAndFilterComponent implements OnInit {
 
-  private category = '0';
   private complexity = {
     up: false,
     down: false
@@ -22,6 +21,8 @@ export class SortAndFilterComponent implements OnInit {
   constructor() { }
 
   @Input() search_data;
+  @Input() disabled = false;
+  @Input() category = '0';
   @Output() sortByCategory = new EventEmitter<string>();
   @Output() sortByComplexity = new EventEmitter<string>();
   @Output() sortByTime = new EventEmitter<string>();

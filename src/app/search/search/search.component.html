@@ -2,7 +2,7 @@
 <div class="wrapper">
     <app-section-header [header]="headerText"></app-section-header>
     <app-sort-and-filter
-    [search_data]="search_data"
+    [search_data]="searchParams.search_data"
     (sortByCategory)="sortByCategory($event)"
     (sortByComplexity)="sortByComplexity($event)"
     (sortByTime)="sortByTime($event)"

@@ -35,7 +35,13 @@
   </div>
   <div class="filter">
     <p class="title category">Search in</p>
-    <select class="form-control" name="category_id" [(ngModel)]="category" (change)="categoryChange()">
+    <select 
+      class="form-control"
+      name="category_id"
+      [(ngModel)]="category"
+      (change)="categoryChange()"
+      [disabled]="disabled"
+    >
       <option value=0 selected>All recipes</option>
       <option value=1>Appetizers&Snack</option>
       <option value=2>Breakfast&Brunch</option>
