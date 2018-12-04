@@ -22,12 +22,6 @@ export class SearchComponent implements OnInit {
     complexityFilter: 0,
     timeFilter: '',
   }
-  // private searchParams.search_data = '';
-  private sortCategory = '0';
-  private sortComplexity = '';
-  private sortTime = '';
-  private complexityFilter = 0;
-  private timeFilter = '';
 
   constructor(private route: ActivatedRoute, private searchService: SearchHttpService) { }
 
@@ -44,56 +38,7 @@ export class SearchComponent implements OnInit {
         })
   }
 
-  sortByCategory(event) {
-    this.searchParams.sortCategory = event;
-    this.searchService.searchRecipes(this.searchParams)
-      .subscribe(
-        (data: any) => {
-          this.recipes = data;
-        })
-  }
-  sortByComplexity(event) {
-    this.searchParams.sortComplexity = event;
-    if (this.searchParams.sortComplexity) {
-      this.searchService.searchRecipes(this.searchParams)
-        .subscribe(
-          (data: any) => {
-            this.recipes = data;
-          })
-    }
-  }
-  sortByTime(event) {
-    this.searchParams.sortTime = event;
-    if (this.searchParams.sortTime) {
-      this.searchService.searchRecipes(this.searchParams)
-        .subscribe(
-          (data: any) => {
-            this.recipes = data;
-          })
-    }
-  }
   newSearchData(event) {
-    this.searchParams.search_data = event;
-    this.searchService.searchRecipes(this.searchParams)
-      .subscribe(
-        (data: any) => {
-          this.recipes = data;
-        })
-  }
-  filterByComplexity(event) {
-    this.searchParams.complexityFilter = event;
-    this.searchService.searchRecipes(this.searchParams)
-      .subscribe(
-        (data: any) => {
-          this.recipes = data;
-        })
-  }
-  filterByTime(event) {
-    this.searchParams.timeFilter = event;
-    this.searchService.searchRecipes(this.searchParams)
-      .subscribe(
-        (data: any) => {
-          this.recipes = data;
-        })
+    this.recipes = event;
   }
 }
