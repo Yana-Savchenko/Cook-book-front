@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 import { RecipeHttpService } from '../../core/services/recipe-http.service';
 
@@ -30,7 +29,7 @@ export class UserRecipesComponent implements OnInit {
           console.log(this.recipes[0].user);
           this.user.firstName = this.recipes[0].user.firstName;
           this.user.lastName = this.recipes[0].user.lastName;
-          this.headerText = `${this.user.firstName} ${this.user.lastName} resipes`;
+          this.headerText = `${this.user.firstName} ${this.user.lastName} recipes`;
         })
   }
 

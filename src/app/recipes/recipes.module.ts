@@ -11,7 +11,6 @@ import { DrinksRecipesComponent } from './drinks-recipes/drinks-recipes.componen
 import {FavoritesComponent} from './favorites/favorites.component'
 import { SharedModule } from '../shared/shared.module';
 import { AuthGuard } from '../core/guards/auth.guard';
-import { UserRecipesComponent } from './user-recipes/user-recipes.component';
 
 const routerConfig: Routes = [{
   path: 'all-recipes',
@@ -42,10 +41,6 @@ const routerConfig: Routes = [{
   component: FavoritesComponent,
   canActivate: [AuthGuard],
 },
-{
-  path: 'user/:id',
-  component: UserRecipesComponent,
-},
 ];
 
 @NgModule({
@@ -62,7 +57,6 @@ const routerConfig: Routes = [{
     DinnerRecipesComponent,
     DrinksRecipesComponent,
     FavoritesComponent,
-    UserRecipesComponent
   ]
 })
 export class RecipesModule { }

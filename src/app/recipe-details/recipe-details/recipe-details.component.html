@@ -15,7 +15,7 @@
     <p>{{recipe.content}}</p>
     <p>
       <span class="bold">Author: </span>
-      <a [routerLink]="['/recipes/user', recipe.userId]">{{recipe.userName.firstName}} {{recipe.userName.lastName}}</a>
+      <a [routerLink]="['/user/recipes', recipe.userId]">{{recipe.userName.firstName}} {{recipe.userName.lastName}}</a>
     </p>
     <button *ngIf="recipe.isEdit" class="btn btn-lg btn-primary" type="button" (click)="editRecipe()">Edit</button>
   </div>

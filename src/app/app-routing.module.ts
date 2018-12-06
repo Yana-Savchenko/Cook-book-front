@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'recipe', loadChildren: './recipe-details/recipe-details.module#RecipeDetailsModule' },
   { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' },
   { path: 'search', loadChildren: './search/search.module#SearchModule' },
+  { path: 'user', loadChildren: './user/user.module#UserModule' },
   { path: '**', component: NotFoundComponent }
 ];
 
