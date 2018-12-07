@@ -33,17 +33,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   submit(){
-      console.log(this.myForm.value);
       this.httpService.postRegister(this.myForm.value).subscribe(
         (data: any) => {
-          localStorage.setItem('token', data.token);
-          this.httpService.setAuth(true);
           this.router.navigate(['/home']);
           },
         error => {
           console.log(error);
           if (error.status === 400) {
-            console.log(error.status);
             this.errMessage = error.error.message;
           }
         }

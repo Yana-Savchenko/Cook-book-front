@@ -1,16 +1,16 @@
 <app-category-nav></app-category-nav>
 <div class="wrapper">
   <app-section-header [header]="headerText"></app-section-header>
-  <form [formGroup]="newRecipeForm" novalidate (ngSubmit)="submit()" enctype="multipart/form-data">
+  <form class="form" [formGroup]="newRecipeForm" novalidate (ngSubmit)="submit()" enctype="multipart/form-data">
     <div class="form-group">
       <label>Title</label>
       <input class="form-control" name="title" formControlName="title" placeholder="Title" />
     </div>
     <div class="form-group">
       <label>Recipe description</label>
-      <textarea class="form-control" name="content" formControlName="content" placeholder="Content"></textarea>
+      <textarea class="form__item--content form-control" name="content" formControlName="content" placeholder="Content"></textarea>
     </div>
-    <div class="form-group select">
+    <div class="form-group form__item--select">
       <div class="form-group">
         <label>Recipe category</label>
         <select class="form-control" name="category_id" formControlName="category_id">
@@ -40,7 +40,7 @@
     <div class="form-group">
       <input type="file" name="dish_photo" accept="image/*,image/jpeg" formControlName="dish_photo" (change)="change($event)" />
     </div>
-    <img [src]="sanitize()">
+    <img class="preview" [src]="sanitize()">
     <div class="form-group">
       <button class="btn btn-lg btn-primary" type="submit" [disabled]="newRecipeForm.invalid">Save</button>
     </div>

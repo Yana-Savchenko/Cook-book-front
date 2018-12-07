@@ -11,12 +11,13 @@ export class BreafastRecipesComponent implements OnInit {
 
   private headerText:string = 'Breakfast&Brunch';
   private recipes = [];
+  private category = 2;
 
   constructor(private httpService: RecipeHttpService) { }
   
 
   ngOnInit() {
-    this.httpService.getCategryRecipes(2).subscribe(
+    this.httpService.getCategryRecipes(this.category).subscribe(
       (data: any) => {
         this.recipes = data;
       },

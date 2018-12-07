@@ -23,19 +23,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+  
   submit() {
-    console.log(this.myForm.value);
     this.httpService.postLogin(this.myForm.value).subscribe(
       (data: any) => {
-        console.log(data.token);
-        localStorage.setItem('token', data.token);
         this.router.navigate(['/home']);
-        this.httpService.setAuth(true);
       },
       error => {
         console.log(error);
         if (error.status === 400) {
-          console.log(error.status);
           this.errMessage = error.error.message;
         }
       }

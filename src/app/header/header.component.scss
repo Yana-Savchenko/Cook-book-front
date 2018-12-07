@@ -1,63 +1,70 @@
-nav {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #FFF;
     height: 5rem;
-    
-    .wrapper {
-        padding-left: 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center; 
-    }
-
-    h2 {
-        font-family: Fredericka the Great, sans-serif;
-        font-size: 2rem;
-        span {
-            color: #96c031;
-        }
-    }
-
-    h2 a, .auth a {
-        color: #262626;
-        margin-right: 10px;
-    }
-    .btn-outline-primary {
-        border-color: #fff;
-        color: #262626;
-        margin-right: 1rem; 
-    }
-    .btn-outline-primary:focus:active, .btn-outline-primary:focus, .btn-outline-primary:hover {
-        background: none;
-        box-shadow: none;
-    }
-    .btn-outline-primary.dropdown-toggle {
-        border-color: #FFF;
-        color: #262626;
-        background-color: #fff;
-        :active {
-            background-color: #fff;
-        }
-    }
-    .btn-group {
-        display: flex;
-        align-items: center;
-    }
-    .fa-user {
-        color: #96c031;
-        font-size: 2rem;
-    }
-    .dropdown-item:active {
-        background-color: #76942d;
-    }
-    .dropdown-item:hover {
-        background-color: #96c031;
-    }
+} 
+.wrapper {
+    padding-left: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+.header__title {
+    font-family: Fredericka the Great, sans-serif;
+    font-size: 2rem;
+}
+.header__title--color {
+    color: #96c031;
+}
+.header__title--link, .auth a {
+    color: #262626;
+    margin-right: 10px;
 }
 
-.searchbox {
+// bootstrap buttons and dropdown
+.btn-outline-primary {
+    border-color: #fff;
+    color: #262626;
+    margin-right: 1rem; 
+}
+.btn-outline-primary:focus:active, .btn-outline-primary:focus, .btn-outline-primary:hover {
+    background: none;
+    box-shadow: none;
+}
+.btn-outline-primary.dropdown-toggle {
+    border-color: #FFF;
+    color: #262626;
+    background-color: #fff;
+    :active {
+        background-color: #fff;
+        color: #262626;
+    }
+}
+.btn-group {
+    display: flex;
+    align-items: center;
+}
+.btn-group button {
+    font-size: 1.5rem;
+}
+.dropdown-item:active {
+    background-color: #76942d;
+}
+.dropdown-item:hover {
+    background-color: #96c031;
+}
+
+// user icon
+.fa-user {
+    color: #96c031;
+    font-size: 2rem;
+}
+
+
+// search
+.search__box {
     display: flex;
     min-width: 40%;
     &>input {
@@ -71,12 +78,8 @@ nav {
         color: #FFF;
     }
 }
-.search_toggle {
+.search {
     width: 40%;
-}
-
-.btn-group button {
-    font-size: 1.5rem;
 }
 
 .auth {

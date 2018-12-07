@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment'
+import { tap } from 'rxjs/operators';
 
 import { Subject, Observable, BehaviorSubject } from 'rxjs';
 import { ThrowStmt } from '@angular/compiler';
@@ -9,14 +10,14 @@ import { ThrowStmt } from '@angular/compiler';
 export class AuthHttpService {
     servUrl = environment.serverUrl;
 
-    private isAuth: BehaviorSubject<any> = null;
+    private user: BehaviorSubject<any> = null;
     private TOKEN_KEY = 'token';
-    public isAuth$: Observable<boolean>;
+    public user$: Observable<boolean>;
 
     constructor(private http: HttpClient) {
-        const isAuth = localStorage.getItem(this.TOKEN_KEY) || false;
-        this.isAuth = new BehaviorSubject(isAuth);
-        this.isAuth$ = this.isAuth.asObservable();
+        const user = localStorage.getItem(this.TOKEN_KEY) || false;
+        this.user = new BehaviorSubject(user);
+        this.user$ = this.user.asObservable();
     }
 
     isAuthenticated(): boolean {
@@ -27,15 +28,29 @@ export class AuthHttpService {
         return false;
     }
 
-    setAuth(isAuth: boolean) {
-        this.isAuth.next(isAuth);
+    setAuth(user: boolean) {
+        this.user.next(user);
     }
 
     postRegister(user: any) {
-        return this.http.post(`${this.servUrl}/auth/register`, user);
+        return this.http.post(`${this.servUrl}/auth/register`, user).pipe(
+            tap((data: any) => {
+                localStorage.setItem('token', data.token);
+                if (data.token) {
+                    this.setAuth(true);
+                }
+            })
+        )
     }
 
     postLogin(user: any) {
-        return this.http.post(`${this.servUrl}/auth/login`, user);
+        return this.http.post(`${this.servUrl}/auth/login`, user).pipe(
+            tap((data: any) => {
+                localStorage.setItem('token', data.token);
+                if (data.token) {
+                    this.setAuth(true);
+                }
+            })
+        )
     }
 }

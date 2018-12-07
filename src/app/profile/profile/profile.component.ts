@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ProfileHttpService, User } from '../../core/services/profile-http.service';
+import { switchMap, catchError } from 'rxjs/operators';
+import { of } from 'rxjs'
 
 @Component({
   selector: 'app-profile',
@@ -45,29 +47,30 @@ export class ProfileComponent implements OnInit {
   }
 
   saveEdits(event) {
-    this.httpService.updateUserData(event).subscribe(
-      () => {
-        this.visibility = true;
-        this.httpService.getUserData().subscribe(
-          (data: User) => {
-            console.log(data);
-            this.userData = data;
-          },
-          error => console.log(error)
-        );
-      },
-      error => {
-        console.log(error);
-        if (error.status === 400) {
-          console.log(error.status);
-          this.errMessage = error.error.message;
-        }
-      }
-    );
+    this.httpService.updateUserData(event)
+      .pipe(
+        catchError(error => {
+          if (error.status === 400) {
+            this.errMessage = error.error.message;
+          }
+          throw error;
+        }),
+        switchMap(() => {
+          this.visibility = true;
+          return this.httpService.getUserData();
+        }),
+      )
+      .subscribe(
+        (data: User) => {
+          this.userData = data;
+        },
+        error => {
+          console.log(error)
+        },
+      );
   }
 
   changeAvatar(e) {
-    console.log(e);
     this.httpService.updateAvatar(e).subscribe(
       (data: any) => {
         this.userData.avatar = data.path;

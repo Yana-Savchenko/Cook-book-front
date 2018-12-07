@@ -60,10 +60,8 @@ export class RecipeDetailsComponent implements OnInit {
     )
       .subscribe(
         (data: RecipeDetails) => {
-          console.log(data);
           this.recipe = data;
           this.isLiked = this.recipe.isLiked;
-          console.log(this.isLiked);
           switch (this.recipe.cookingTime) {
             case ("0.25"): {
               this.recipe.cookingTimeText = 'up to 15 minutes';

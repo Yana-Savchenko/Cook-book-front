@@ -33,7 +33,6 @@ export class NewRecipeComponent implements OnInit {
   ngOnInit() {
   }
   submit() {
-    console.log(this.newRecipeForm.value);
     const formData = new FormData();
     formData.append("title", this.newRecipeForm.value.title);
     formData.append("content", this.newRecipeForm.value.content);

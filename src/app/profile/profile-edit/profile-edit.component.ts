@@ -34,12 +34,10 @@ export class ProfileEditComponent implements OnInit {
   }
 
   saveEdits() {
-    console.log(this.profile);
     this.newData.emit(this.profile.value);
   }
 
   cancelEdits() {
-    console.log('cancel')
     this.cancel.emit(true);
   }
 }

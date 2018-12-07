@@ -1,16 +1,15 @@
-.wrapper {
-    .btn-primary, .btn-primary:active, .btn-primary:hover {
-        background-color:  #96c031;
-        border-color:  #96c031;
-        box-shadow: none;
-        margin-left: 10px;
-    }
-    .btn-primary:focus {
-        background-color:  #76942d;;
-        border-color:  #76942d;;
-        box-shadow: none;
-    }
-    .no-recipes {
-        padding: 10px;
-    }
-} 
+.btn-primary, .btn-primary:active, .btn-primary:hover {
+    background-color:  #96c031;
+    border-color:  #96c031;
+    box-shadow: none;
+    margin-left: 10px;
+}
+.btn-primary:focus {
+    background-color:  #76942d;;
+    border-color:  #76942d;;
+    box-shadow: none;
+}
+.no-recipes {
+    padding: 10px;
+}
+ 

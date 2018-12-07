@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment'
+import { Observable } from 'rxjs';
 
 export interface User {
   firstName: string;
@@ -23,16 +24,13 @@ export class ProfileHttpService {
   constructor(private http: HttpClient) { }
 
   getUserData() {
-    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
-    return this.http.get(`${this.servUrl}/users/profile`, { headers: headersConfig });
+    return this.http.get(`${this.servUrl}/users/profile`);
   }
   updateUserData(user:any) {
-    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
-    return this.http.put(`${this.servUrl}/users/profile`, user, { headers: headersConfig });
+    return this.http.put(`${this.servUrl}/users/profile`, user);
   }
 
   updateAvatar(newAvatar:FormData) {
-    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
-    return this.http.put(`${this.servUrl}/users/profile/avatar`, newAvatar, { headers: headersConfig });
+    return this.http.put(`${this.servUrl}/users/profile/avatar`, newAvatar);
   }
 }

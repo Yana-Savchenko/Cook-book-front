@@ -12,7 +12,6 @@ export class NewRecipeHttpService {
   constructor(private http: HttpClient) { }
 
   postNewRecipe(user: any) {
-    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
-    return this.http.post(`${this.servUrl}/recipes`, user, {headers: headersConfig});
+    return this.http.post(`${this.servUrl}/recipes`, user);
   }
 }

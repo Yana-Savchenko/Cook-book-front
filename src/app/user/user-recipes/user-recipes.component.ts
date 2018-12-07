@@ -26,7 +26,6 @@ export class UserRecipesComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.recipes = data;
-          console.log(this.recipes[0].user);
           this.user.firstName = this.recipes[0].user.firstName;
           this.user.lastName = this.recipes[0].user.lastName;
           this.headerText = `${this.user.firstName} ${this.user.lastName} recipes`;

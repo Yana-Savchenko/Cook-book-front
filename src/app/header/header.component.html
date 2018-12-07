@@ -1,15 +1,15 @@
-<nav>
+<nav class="header">
   <div class="wrapper">
-    <h2><a routerLink="/home">Easy<span>Cook</span></a></h2>
-    <div class="search_toggle">
-      <div class="searchbox">
+    <h1 class="header__title"><a class="header__title--link" routerLink="/home">Easy<span class="header__title--color">Cook</span></a></h1>
+    <div class="search">
+      <div class="search__box">
         <input 
-        type="text" 
-        name="search" 
+        type="text"
+        name="search"
         placeholder="Search recipe here"
         class="form-control input-lg"
         [(ngModel)]="searchData"
-        (keypress)="submit($event)"
+        (keypress)="submit($event)" 
         />
         <button type="button" class="btn btn-default btn-lg" (click)="submit($event)"><i class="fa fa-search"></i></button>
       </div>

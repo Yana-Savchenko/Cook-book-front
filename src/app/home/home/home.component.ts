@@ -20,14 +20,9 @@ export class HomeComponent implements OnInit {
     this.httpService.getHome().subscribe(
       (data: any) => {
         this.recipes = data;
-        console.log(data);
       },
       error => console.log(error)
     );
-  }
-
-  onCardPress(event) {
-    console.log(event);
   }
 
 }

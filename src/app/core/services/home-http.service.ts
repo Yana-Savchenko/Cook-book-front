@@ -12,7 +12,6 @@ export class HomeHttpService {
   constructor(private http: HttpClient) { }
 
   getHome() {
-    const headersConfig = new HttpHeaders({'Authorization': localStorage.getItem('token') || ''});
-    return this.http.get(`${this.servUrl}/home`, { headers: headersConfig });
+    return this.http.get(`${this.servUrl}/home`);
   }
 }

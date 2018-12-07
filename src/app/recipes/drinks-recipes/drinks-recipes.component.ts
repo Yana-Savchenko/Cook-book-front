@@ -11,11 +11,11 @@ export class DrinksRecipesComponent implements OnInit {
 
   private headerText: string = 'Drinks';
   private recipes = [];
-
+  private category = 5;
   constructor(private httpService: RecipeHttpService) { }
 
   ngOnInit() {
-    this.httpService.getCategryRecipes(5).subscribe(
+    this.httpService.getCategryRecipes(this.category).subscribe(
       (data: any) => {
         this.recipes = data;
       },
