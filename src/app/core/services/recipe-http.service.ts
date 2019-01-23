@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment'
 
@@ -42,22 +42,20 @@ export class RecipeHttpService {
   getUserRecipes(userId) {
 
     const params = new HttpParams().set('user_id', userId);
-    return this.http.get(`${this.servUrl}/recipes`);
+    return this.http.get(`${this.servUrl}/recipes`, {params});
   }
 
   getCategryRecipes(category) {
 
     const params = new HttpParams().set('category_id', category);
-    return this.http.get(`${this.servUrl}/recipes`);
+    return this.http.get(`${this.servUrl}/recipes`, {params});
   }
 
   getAllRecipes() {
-
     return this.http.get(`${this.servUrl}/recipes`);
   }
 
   getRecipeDetails(id) {
-
     return this.http.get(`${this.servUrl}/recipes/recipe/${id}`);
   }
 
@@ -79,6 +77,6 @@ export class RecipeHttpService {
   deleteFavoriteRecipes(id) {
 
     const params = new HttpParams().set('recipe_id', id);
-    return this.http.delete(`${this.servUrl}/recipes/favorite`);
+    return this.http.delete(`${this.servUrl}/recipes/favorite`, {params});
   }
 }
